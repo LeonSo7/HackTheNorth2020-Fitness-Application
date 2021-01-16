@@ -19,6 +19,12 @@ body {
   border-radius: 30px !important;
 }
 
+.cardTxt {
+  color: #12182B !important;
+  font-size: 350% !important;
+  font-weight: bold !important;
+}
+
 /* .imgCol {
   padding-left: 10%;
   padding-right: 10%;
@@ -48,7 +54,6 @@ body {
   text-align: center;
   background-color: #12182B;
 }
-
 
 .titleText {
   color: #ffffff;

@@ -21,13 +21,13 @@ function Home() {
                 className="cardImg"
               />
               <Card.ImgOverlay>
-                <Card.Title>PUSH UPS</Card.Title>
-                <Card.Text>
+                <Card.Title className="cardTxt">PUSH UPS</Card.Title>
+                {/* <Card.Text>
                   This is a wider card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
                   longer.
                 </Card.Text>
-                <Card.Text>Last updated 3 mins ago</Card.Text>
+                <Card.Text>Last updated 3 mins ago</Card.Text> */}
               </Card.ImgOverlay>
             </Card>
             <Card className="bg-dark text-white card">
@@ -37,13 +37,13 @@ function Home() {
                 className="cardImg"
               />
               <Card.ImgOverlay>
-                <Card.Title>SQUATS</Card.Title>
-                <Card.Text>
+                <Card.Title className="cardTxt">SQUATS</Card.Title>
+                {/* <Card.Text>
                   This is a wider card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
                   longer.
                 </Card.Text>
-                <Card.Text>Last updated 3 mins ago</Card.Text>
+                <Card.Text>Last updated 3 mins ago</Card.Text> */}
               </Card.ImgOverlay>
             </Card>
           </CardDeck>
@@ -55,13 +55,13 @@ function Home() {
                 className="cardImg"
               />
               <Card.ImgOverlay>
-                <Card.Title>SIT UPS</Card.Title>
-                <Card.Text>
+                <Card.Title className="cardTxt">SIT UPS</Card.Title>
+                {/* <Card.Text>
                   This is a wider card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
                   longer.
                 </Card.Text>
-                <Card.Text>Last updated 3 mins ago</Card.Text>
+                <Card.Text>Last updated 3 mins ago</Card.Text> */}
               </Card.ImgOverlay>
             </Card>
             <Card className="bg-dark text-white card">
@@ -71,13 +71,13 @@ function Home() {
                 className="cardImg"
               />
               <Card.ImgOverlay>
-                <Card.Title>PLANKS</Card.Title>
-                <Card.Text>
+                <Card.Title className="cardTxt">PLANKS</Card.Title>
+                {/* <Card.Text>
                   This is a wider card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
                   longer.
                 </Card.Text>
-                <Card.Text>Last updated 3 mins ago</Card.Text>
+                <Card.Text>Last updated 3 mins ago</Card.Text> */}
               </Card.ImgOverlay>
             </Card>
           </CardDeck>
