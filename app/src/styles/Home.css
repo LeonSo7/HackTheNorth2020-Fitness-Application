@@ -2,10 +2,30 @@ body {
     background-color: #12182B;
   }
 
-.TitleDiv {
+.titleDiv {
   text-align: center;
 }
 
-.TitleText {
-    color: #ffffff;
+.card {
+  margin-top: 2%;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+
+/* .imgCol {
+  padding-left: 10%;
+  padding-right: 10%;
+} */
+
+.imgContainer {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.startBtn {
+  color: #97C055;
+}
+
+.titleText {
+  color: #ffffff;
 }
