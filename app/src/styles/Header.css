@@ -1,11 +1,32 @@
 body {
-    background-color: #12182B;
-  }
+  background-color: #12182B;
+}
 
 .TitleDiv {
-  text-align: center;
+text-align: center;
 }
 
 .TitleText {
-    color: #ffffff;
+  color: #ffffff;
+}
+
+.topButtons {
+background-color: #55BEC0;
+  border-radius: 7px;
+  font-weight: bold;
+  margin: 20px auto;
+  padding: 2px;
+  margin-right: 0;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+}
+
+.topButtons:hover {
+background-color: #6DFFE7;
+}
+
+.welcome {
+font-weight: 400;
+color: white;
 }
