@@ -3,6 +3,8 @@ import './styles/App.css';
 import React, { Component } from 'react';
 import Home from './components/screens/Home';
 import Workout from './components/screens/Workout';
+import History from './components/screens/History';
+import LeaderBoard from './components/screens/LeaderBoard';
 import { Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,6 +33,10 @@ class App extends Component {
           {/* Routes */}
           <Route path='/' component={Home} exact />
           <Route path="/workout" component={Workout} />
+          <Route exact path="/" component={App} />
+        <Route path="/history" component={History} />
+        <Route path="/home" component={Home} />
+        <Route path="/leaderboard" component={LeaderBoard} />
         </Switch>
       </main>
     );

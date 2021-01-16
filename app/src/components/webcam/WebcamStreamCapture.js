@@ -1,12 +1,14 @@
 import Webcam from "react-webcam";
 import React from "react";
-// import ReactPlayer from "react-player";
+import { ReactPlayer, ControlBar } from "react-player";
 
-const WebcamStreamCapture = (props) => {
+const WebcamStreamCapture = () => {
   const webcamRef = React.useRef(null);
+  const playerRef = React.useRef(null);
   const mediaRecorderRef = React.useRef(null);
   const [capturing, setCapturing] = React.useState(false);
   const [recordedChunks, setRecordedChunks] = React.useState([]);
+  const [videoSource, setVideoSource] = React.useState("https://www.youtube.com/watch?v=ZgMOxkVM8Js&ab_channel=CodingShiksha");
 
   const handleStartCaptureClick = React.useCallback(() => {
     if (!capturing) {
@@ -54,8 +56,12 @@ const WebcamStreamCapture = (props) => {
   }, [recordedChunks]);
 
   return (
-    <>
-      {/* <ReactPlayer url="https://www.youtube.com/watch?v=ysz5S6PUM-U" /> */}
+    <div>
+      <ReactPlayer ref={playerRef}>
+        <source src={videoSource} />
+        <ControlBar autoHide={true} />
+      </ReactPlayer>
+      {/* <ReactPlayer url={videoSource} /> */}
       <Webcam audio={false} ref={webcamRef} />
       {capturing ? (
         <button onClick={handleStopCaptureClick}>Stop Capture</button>
@@ -66,7 +72,7 @@ const WebcamStreamCapture = (props) => {
       {recordedChunks.length > 0 && (
         <button onClick={handleDownload}>Download</button>
       )}
-    </>
+    </div>
   );
 };
 
