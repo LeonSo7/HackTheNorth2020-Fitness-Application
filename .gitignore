@@ -5,6 +5,9 @@ __pycache__/
 
 # C extensions
 *.so
+*.png
+*.jpg
+src/pix2pixHD/datasets/*
 
 # Distribution / packaging
 .Python

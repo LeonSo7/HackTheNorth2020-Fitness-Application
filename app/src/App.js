@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-// import './App.css';
+import './styles/App.css';
 import Home from './components/screens/Home';
 import { Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,7 +22,7 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <main>
+    <main className="App">
       <Switch>
         {/* Routes */}
         <Route path='/' component={Home} exact />
