@@ -1,4 +1,16 @@
 body {
+    background-color: #12182B;
+  }
+
+.TitleDiv {
+  text-align: center;
+}
+
+.TitleText {
+    color: #ffffff;
+}
+
+body {
   background-color: #12182B;
 }
 
@@ -17,16 +29,25 @@ background-color: #55BEC0;
   margin: 20px auto;
   padding: 2px;
   margin-right: 0;
-  height: 30px;
-  width: 130px;
+  height: 40%;
+  width: 100%;
   text-align: center;
 }
 
 .topButtons:hover {
-background-color: #6DFFE7;
+  background-color: #6DFFE7;
 }
 
 .welcome {
-font-weight: 400;
-color: white;
+  font-weight: 400;
+  color: white;
+}
+
+.topButtons:hover {
+  background-color: #6DFFE7;
+}
+
+.welcome {
+  font-weight: 400;
+  color: white;
 }
