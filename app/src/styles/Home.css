@@ -13,6 +13,8 @@ body {
   border-radius: 30px !important;
   border-color: #ffffff !important;
   border-width: 3px !important;
+  height: 20%;
+  width: 20%;
 }
 
 .cardImg {
@@ -21,14 +23,9 @@ body {
 
 .cardTxt {
   color: #12182B !important;
-  font-size: 350% !important;
+  font-size: 80px !important;
   font-weight: bold !important;
 }
-
-/* .imgCol {
-  padding-left: 10%;
-  padding-right: 10%;
-} */
 
 .imgContainer {
   margin-left: 5%;
