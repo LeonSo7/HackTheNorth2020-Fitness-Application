@@ -1,0 +1,16 @@
+body {
+  background-color: #12182B !important;
+}
+
+.whiteBackground {
+  display: inline-block;
+  background-color: white;
+  border-radius: 7px;
+}
+
+.titleText {
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}

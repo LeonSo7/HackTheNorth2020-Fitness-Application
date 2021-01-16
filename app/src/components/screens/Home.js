@@ -11,7 +11,9 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      exercise: true
+      exercise: true,
+      history: false,
+      leaderBoard: false
     }
   }
 
