@@ -5,6 +5,8 @@ import cv2
 from pathlib import Path
 import os
 import torch
+import warnings
+warnings.filterwarnings('ignore')
 
 # Set up CUDA GPU
 os.environ['CUDA_VISIBLE_DEVICES'] = "0"
@@ -20,23 +22,24 @@ img_loc.mkdir(exist_ok=True)
 
 # Split images
 if len(os.listdir('./data/source/images')) < 100:
-    video_capture = cv2.VideoCapture(str(save_loc.joinpath('mv.mp4')))
-    num = 0
-    while (video_capture.isOpened()):
-        flag, frame = video_capture.read()
-        if flag == False or num >= 1000:
-            break
-        cv2.imwrite(str(img_loc.joinpath('{:05}.png'.format(num))), frame)
-        num += 1
+	video_capture = cv2.VideoCapture(str(save_loc.joinpath('source.mp4')))
+	num = 0
+	print('Generating images now...')
 
-    print('Generated %d pics' % num)
+	while (video_capture.isOpened()):
+		flag, frame = video_capture.read()
+		if flag == False or num >= 1000:
+			break
+		cv2.imwrite(str(img_loc.joinpath('{:05}.png'.format(num))), frame)
+		num += 1
+
+	print('Generated %d pics' % num)
 
 """
 Step 2: Use Pose images to create estimated images (use pre-trained weights)
 """
 import numpy as np
 import matplotlib.pyplot as plt
-import torch
 import sys
 from tqdm import tqdm
 
@@ -60,34 +63,32 @@ model.eval()
 """
 Step 3: Use Pose images to create estimated images (use pre-trained weights)
 """
-test_img_loc = save_loc.joinpath('test_img')
-test_img_loc.mkdir(exist_ok=True)
-test_label_loc = save_loc.joinpath('test_label_ori')
-test_label_loc.mkdir(exist_ok=True)
+source_img_loc = save_loc.joinpath('source_img')
+source_img_loc.mkdir(exist_ok=True)
+source_label_loc = save_loc.joinpath('source_label_ori')
+source_label_loc.mkdir(exist_ok=True)
 
 # Now, draw the skeletons
-pose_coordinates = []
 for idx in tqdm(range(len(os.listdir(str(img_loc))))):
-    img_path = img_loc.joinpath('{:05}.png'.format(idx))
-    img = cv2.imread(str(img_path))
-    shape_dst = np.min(img.shape[:2])
-    oh = (img.shape[0] - shape_dst) // 2
-    ow = (img.shape[1] - shape_dst) // 2
+	img_path = img_loc.joinpath('{:05}.png'.format(idx))
+	img = cv2.imread(str(img_path))
+	shape_dst = np.min(img.shape[:2])
+	oh = (img.shape[0] - shape_dst) // 2
+	ow = (img.shape[1] - shape_dst) // 2
 
-    img = img[oh:oh + shape_dst, ow:ow + shape_dst]
-    img = cv2.resize(img, (512, 512))
-    multiplier = get_multiplier(img)
+	img = img[oh:oh + shape_dst, ow:ow + shape_dst]
+	img = cv2.resize(img, (512, 512))
+	multiplier = get_multiplier(img)
 
-    with torch.no_grad():
-        paf, heatmap = get_outputs(multiplier, img, model, 'rtpose')
-    r_heatmap = np.array([remove_noise(ht) for ht in heatmap.transpose(2, 0, 1)[:-1]]).transpose(1, 2, 0)
-    heatmap[:, :, :-1] = r_heatmap
-    param = {'thre1': 0.1, 'thre2': 0.05, 'thre3': 0.5}
+	with torch.no_grad():
+		paf, heatmap = get_outputs(multiplier, img, model, 'rtpose')
+	r_heatmap = np.array([remove_noise(ht) for ht in heatmap.transpose(2, 0, 1)[:-1]]).transpose(1, 2, 0)
+	heatmap[:, :, :-1] = r_heatmap
+	param = {'thre1': 0.1, 'thre2': 0.05, 'thre3': 0.5}
 
-    label, coord = get_pose(param, heatmap, paf)
-    index = 13
+	label, coord = get_pose(param, heatmap, paf)
 
-    cv2.imwrite(str(test_img_loc.joinpath('{:05}.png'.format(idx))), img)
-    cv2.imwrite(str(test_label_loc.joinpath('{:05}.png'.format(idx))), label)
+	cv2.imwrite(str(source_img_loc.joinpath('{:05}.png'.format(idx))), img)
+	cv2.imwrite(str(source_label_loc.joinpath('{:05}.png'.format(idx))), label)
 
 torch.cuda.empty_cache()
