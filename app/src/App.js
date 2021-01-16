@@ -2,6 +2,7 @@
 import './styles/App.css';
 import React, { Component } from 'react';
 import Home from './components/screens/Home';
+import Workout from './components/screens/Workout';
 import { Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -29,6 +30,7 @@ class App extends Component {
         <Switch>
           {/* Routes */}
           <Route path='/' component={Home} exact />
+          <Route path="/workout" component={Workout} />
         </Switch>
       </main>
     );
