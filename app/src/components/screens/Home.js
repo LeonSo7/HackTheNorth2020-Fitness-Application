@@ -4,12 +4,12 @@ import pushupThumbnail from "../../assets/pushup_thumbnail.jpg";
 import plankThumbnail from "../../assets/plank_thumbnail.jpg";
 import situpsThumbnail from "../../assets/situps_thumbnail.JPG";
 import squatsThumbnail from "../../assets/squats_thumbnail.jpg";
-import Header from "./Header";
+import Header from "../ui/Header";
 
 function Home() {
   return (
     <div>
-      <Header />
+      <Header/>
       <Row>
         <Col>
           <Card className="bg-dark text-white">

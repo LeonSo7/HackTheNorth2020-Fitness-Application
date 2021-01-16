@@ -2,6 +2,7 @@
 // import './App.css';
 import Home from './components/screens/Home';
 import { Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
