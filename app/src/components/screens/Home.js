@@ -1,5 +1,5 @@
 import "../../styles/Home.css";
-import { Button, Card, CardDeck, Col } from "react-bootstrap";
+import { Card, CardDeck, Col } from "react-bootstrap";
 import pushupThumbnail from "../../assets/pushup_thumbnail.jpg";
 import lungesThumbnail from "../../assets/lunges_thumbnail.jpg";
 import situpsThumbnail from "../../assets/situps_thumbnail.JPG";
@@ -8,17 +8,17 @@ import Header from "../ui/Header";
 
 function Home() {
   return (
-    <div>
-      <Header />
+    <div class="mainContainer">
+      <Header/>
       {/* Exercise Cards */}
       <div className="imgContainer">
         <Col className="imgCol">
           <CardDeck>
             <Card className="bg-dark text-white card">
               <Card.Img
-                variant="top"
                 src={pushupThumbnail}
                 alt="Pushup Thumbnail"
+                className="cardImg"
               />
               <Card.ImgOverlay>
                 <Card.Title>PUSH UPS</Card.Title>
@@ -31,7 +31,11 @@ function Home() {
               </Card.ImgOverlay>
             </Card>
             <Card className="bg-dark text-white card">
-              <Card.Img src={squatsThumbnail} alt="Squats Thumbnail" />
+              <Card.Img
+                src={squatsThumbnail}
+                alt="Squats Thumbnail"
+                className="cardImg"
+              />
               <Card.ImgOverlay>
                 <Card.Title>SQUATS</Card.Title>
                 <Card.Text>
@@ -45,7 +49,11 @@ function Home() {
           </CardDeck>
           <CardDeck>
             <Card className="bg-dark text-white card">
-              <Card.Img src={situpsThumbnail} alt="Sit Ups Thumbnail" />
+              <Card.Img
+                src={situpsThumbnail}
+                alt="Sit Ups Thumbnail"
+                className="cardImg"
+              />
               <Card.ImgOverlay>
                 <Card.Title>SIT UPS</Card.Title>
                 <Card.Text>
@@ -57,7 +65,11 @@ function Home() {
               </Card.ImgOverlay>
             </Card>
             <Card className="bg-dark text-white card">
-              <Card.Img src={lungesThumbnail} alt="Squats Thumbnail" />
+              <Card.Img
+                src={lungesThumbnail}
+                alt="Squats Thumbnail"
+                className="cardImg"
+              />
               <Card.ImgOverlay>
                 <Card.Title>PLANKS</Card.Title>
                 <Card.Text>
@@ -71,9 +83,10 @@ function Home() {
           </CardDeck>
         </Col>
       </div>
-
-      <div>
-        <Button variant="primary" className="startBtn">Start</Button>
+      <div className="startBtnDiv">
+        <div className="startBtn">
+          <p className="startBtnTxt">Start</p>
+        </div>
       </div>
     </div>
   );
