@@ -12,7 +12,7 @@ text-align: center;
 }
 
 .topButtons {
-background-color: #55BEC0;
+  background-color: #55BEC0;
   border-radius: 7px;
   font-weight: bold;
   margin: 20px auto;
@@ -22,6 +22,7 @@ background-color: #55BEC0;
   width: 100%;
   text-align: center;
   font-size: 24px;
+  color: black !important;
 }
 
 
@@ -36,6 +37,7 @@ background-color: #55BEC0;
   width: 100%;
   text-align: center;
   font-size: 24px;
+  color: black;
 }
 
 .welcome {
