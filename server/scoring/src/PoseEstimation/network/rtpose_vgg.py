@@ -129,7 +129,7 @@ def get_model(trunk='vgg19'):
     models = {}
 
     if trunk == 'vgg19':
-        print("Bulding VGG19")
+        print("Building VGG19...")
         models['block0'] = make_vgg19_block(block0)
 
     for k, v in blocks.items():
