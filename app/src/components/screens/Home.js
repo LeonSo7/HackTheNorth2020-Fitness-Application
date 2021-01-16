@@ -4,19 +4,12 @@ import pushupThumbnail from "../../assets/pushup_thumbnail.jpg";
 import plankThumbnail from "../../assets/plank_thumbnail.jpg";
 import situpsThumbnail from "../../assets/situps_thumbnail.JPG";
 import squatsThumbnail from "../../assets/squats_thumbnail.jpg";
+import Header from "./Header";
 
 function Home() {
   return (
     <div>
-      <div>
-        <Button variant="primary">Select Exercise</Button>
-        <Button variant="primary">View History</Button>
-        <Button variant="primary">Leaderboard</Button>
-      </div>
-      <div className="TitleDiv">
-        <h className="TitleText">Test page</h>
-      </div>
-
+      <Header />
       <Row>
         <Col>
           <Card className="bg-dark text-white">
