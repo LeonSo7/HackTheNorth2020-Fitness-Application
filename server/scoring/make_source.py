@@ -24,7 +24,7 @@ if len(os.listdir('./data/source/images'))<100:
             break
         cv2.imwrite(str(img_dir.joinpath('{:05}.png'.format(i))), frame)
         if i%100 == 0:
-            print('Has generated %d picetures'%i)
+            print('Has generated %d pics'%i)
         i += 1
 
 '''Pose estimation (OpenPose)'''
