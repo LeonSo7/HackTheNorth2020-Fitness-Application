@@ -20,6 +20,10 @@ def calculate_score():
     # TODO: calculate score
     score = 1
     add_score(data['exercise'], score)
+
+    '''
+    score <integer>
+    '''
     return {'status': 200, 'score': score}
 
 def add_score(exercise, score):
@@ -30,7 +34,7 @@ def add_score(exercise, score):
             '{exercise}',
             {score}
         )''')
-        
+
     conn.commit()
     logging.debug('add_score(): status message: %s', cur.statusmessage)
 
@@ -51,6 +55,18 @@ def get_scores():
 
     conn.commit()
     logging.debug('get_scores(): status message: %s', cur.statusmessage)
+
+    '''
+    results: [
+        [
+            id <integer>,
+            exercise <string>,
+            score <integer>,
+            timestamp <timestamp>
+        ],
+        ...
+    ]
+    '''
 
     return {'status': 200, 'scores': results}
 
