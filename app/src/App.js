@@ -1,7 +1,8 @@
 // import logo from './logo.svg';
 // import './App.css';
 import Home from './components/screens/Home';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
     // </div>
     <main>
       <Switch>
-        {/* Routes */ }
-        <Route path='/' component={Home} exact/>
+        {/* Routes */}
+        <Route path='/' component={Home} exact />
         <Route component={Error} />
       </Switch>
     </main>
