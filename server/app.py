@@ -12,6 +12,7 @@ DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_USER = os.getenv('DB_USER')
 app = Flask(__name__)
 
+# send post request with {exercise: <name of exercise>}
 @app.route('/calculate', methods=['POST'])
 def calculate_score():
     data = request.get_json()
