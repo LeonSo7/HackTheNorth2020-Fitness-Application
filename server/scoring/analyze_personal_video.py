@@ -15,14 +15,14 @@ torch.backends.cudnn.benchmark = True
 torch.cuda.set_device(0)
 
 # Set path to save
-save_loc = Path('./data/target/')
+save_loc = Path('./data/personal/')
 save_loc.mkdir(exist_ok=True)
 img_loc = save_loc.joinpath('images')
 img_loc.mkdir(exist_ok=True)
 
 # Split images
-if len(os.listdir('./data/target/images')) < 100:
-	video_capture = cv2.VideoCapture(str(save_loc.joinpath('target.mp4')))
+if len(os.listdir('./data/personal/images')) < 100:
+	video_capture = cv2.VideoCapture(str(save_loc.joinpath('personal.mp4')))
 	num = 0
 	print('Generating images now...')
 
@@ -63,10 +63,10 @@ model.eval()
 """
 Step 3: Use Pose images to create estimated images (use pre-trained weights)
 """
-target_img_loc = save_loc.joinpath('target_img')
-target_img_loc.mkdir(exist_ok=True)
-target_label_loc = save_loc.joinpath('target_label_ori')
-target_label_loc.mkdir(exist_ok=True)
+personal_img_loc = save_loc.joinpath('personal_img')
+personal_img_loc.mkdir(exist_ok=True)
+personal_label_loc = save_loc.joinpath('personal_label_ori')
+personal_label_loc.mkdir(exist_ok=True)
 
 # Now, draw the skeletons
 for idx in tqdm(range(len(os.listdir(str(img_loc))))):
@@ -88,7 +88,7 @@ for idx in tqdm(range(len(os.listdir(str(img_loc))))):
 
 	label, coord = get_pose(param, heatmap, paf)
 
-	cv2.imwrite(str(target_img_loc.joinpath('{:05}.png'.format(idx))), img)
-	cv2.imwrite(str(target_label_loc.joinpath('{:05}.png'.format(idx))), label)
+	cv2.imwrite(str(personal_img_loc.joinpath('{:05}.png'.format(idx))), img)
+	cv2.imwrite(str(personal_label_loc.joinpath('{:05}.png'.format(idx))), label)
 
 torch.cuda.empty_cache()
