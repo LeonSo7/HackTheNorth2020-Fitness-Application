@@ -13,7 +13,6 @@ import {
   ResponsiveContainer
 } from "recharts";
 
-
 class ExerciseInfoSection extends Component {
   constructor(props) {
     super(props);
@@ -27,14 +26,41 @@ class ExerciseInfoSection extends Component {
     };
   }
 
-  componentDidMount() {
-    axios.get("https://cors-anywhere.herokuapp.com/http://35.229.83.24:5000/scores?exercise=pushup").then(res => {
+  fetchData = (exercise) => {
+    axios.get(`https://cors-anywhere.herokuapp.com/http://35.229.83.24:5000/scores?exercise=${exercise}`).then(res => {
       if (res.status === 200) {
         const scores = res.data.scores.map((ele, i) => ([ele[2], i+1]));
-        console.log(scores)
         this.setState({data: scores});
       }
     });
+  }
+
+  componentDidMount() {
+    this.fetchData('pushup')
+  }
+
+  activeTab = (tabName) => {
+    this.setState({
+      pu: tabName === 'pu',
+      squat: tabName === 'squat',
+      su: tabName === 'su',
+      plank: tabName === 'plank'
+    });
+
+    let exercise;
+    switch (tabName) {
+      case 'pu':
+        exercise = 'pushup';
+        break;
+      case 'su':
+        exercise = 'situp';
+        break;
+      default:
+        exercise = tabName;
+        break;
+    }
+
+    this.fetchData(exercise);
   }
 
   render() {
@@ -57,7 +83,7 @@ class ExerciseInfoSection extends Component {
                         </>
                       )
                         :
-                        (this.state.squats) ? (
+                        (this.state.squat) ? (
                           <>
                             <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
                             <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Squats</h1></Col>
@@ -114,36 +140,36 @@ class ExerciseInfoSection extends Component {
                         {
                           (this.state.pu) ? (
                             <>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Push Ups</h1></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                              <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }} > <h1 className="currentPageButton">Push Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeTab('squat')}> <h1 className="topButtons">Squats</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeTab('su')}> <h1 className="topButtons">Sit Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }} onClick={() => this.activeTab('plank')}> <h1 className="topButtons">Planks</h1></Col>
                             </>
                           )
                             :
-                            (this.state.squats) ? (
+                            (this.state.squat) ? (
                               <>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Squats</h1></Col>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                                <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeTab('pu')}> <h1 className="topButtons">Push Ups</h1></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }} > <h1 className="currentPageButton">Squats</h1></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeTab('su')}> <h1 className="topButtons">Sit Ups</h1></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }} onClick={() => this.activeTab('plank')}> <h1 className="topButtons">Planks</h1></Col>
                               </>
                             )
                               :
                               (this.state.su) ? (
                                 <>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Sit Ups</h1></Col>
-                                  <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeTab('pu')}> <h1 className="topButtons">Push Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeTab('squat')}> <h1 className="topButtons">Squats</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }} > <h1 className="currentPageButton">Sit Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }} onClick={() => this.activeTab('plank')}> <h1 className="topButtons">Planks</h1></Col>
                                 </>
                               )
                                 :
                                 <>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                                  <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeTab('pu')}> <h1 className="topButtons">Push Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeTab('squat')}> <h1 className="topButtons">Squats</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeTab('su')}> <h1 className="topButtons">Sit Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
                                 </>
                         }
 
