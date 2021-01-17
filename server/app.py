@@ -31,13 +31,15 @@ cors = CORS(app)
 def calculate_score():
     if request.form['exercise'] is None or request.files['file'] is None:
         abort(400, 'a parameter was not passed in')
-
+    
+    exercise = request.form['exercise']
     store_file_loc = './vid/personal.webm'
     dest_file_loc = './vid/personal.mp4'
+    #youtube_file_loc = f'./vid/{exercise}.mp4'
     request.files['file'].save(store_file_loc)
     subprocess.call(['ffmpeg', '-y', '-i', store_file_loc, dest_file_loc])
-
-    exercise = request.form['exercise']
+    subprocess.call(['ffmpeg', '-y', '-i', dest_file_loc, '-ss', '00:00:00', '-t', '00:00:10', '-c:v', 'copy', '-c:a', 'copy', dest_file_loc])
+    
     storeImages(f'youtube_{exercise}_images', f'{exercise}.mp4') # stores youtube video
     storeImages(f'personal_images', 'personal.mp4') # stores recorded video
     score = compare_workout(f'./vid/youtube_{exercise}_images', f'./vid/personal_images')
