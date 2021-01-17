@@ -17,14 +17,13 @@ app = Flask(__name__)
 # send post request with file
 @app.route('/calculate', methods=['POST'])
 def calculate_score():
-    if request.form['exercise'] is None or request.form['youtube'] is None or request.files['file'] is None:
+    if request.form['exercise'] is None or request.files['file'] is None:
         abort(400, 'a parameter was not passed in')
 
-    request.files['file'].save('./vid/personal.mp4')
+    request.files['file'].save('./vid/personal.webm')
     exercise = request.form['exercise']
-    youtube_url = request.form['youtube']
-
-    YouTube(youtube_url).streams.first().download(output_path='./vid', filename='youtube')
+    print(exercise)
+    #YouTube(youtube_url).streams.first().download(output_path='./vid', filename='youtube')
 
     # TODO: calculate score
     score = 1
