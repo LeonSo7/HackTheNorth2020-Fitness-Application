@@ -6,7 +6,7 @@ import axios from "axios";
 import { Row, Col } from "react-bootstrap";
 import Countdown from "react-countdown";
 
-const WebcamStreamCapture = () => {
+const WebcamStreamCapture = (props) => {
   const webcamRef = React.useRef(null);
   const playerRef = React.useRef(null);
   const mediaRecorderRef = React.useRef(null);
@@ -15,9 +15,23 @@ const WebcamStreamCapture = () => {
   const [playState, setPlayState] = React.useState(false);
   const [duration, setDuration] = React.useState(null);
 
+  const exerciseStates = {
+    pushup: "https://www.youtube.com/watch?v=rjc0O7OXS3g&ab_channel=DoctorOz",
+    situp:
+      "https://www.youtube.com/watch?v=1fbU_MkV7NE&ab_channel=LIVESTRONG.COM",
+    squat:
+      "https://www.youtube.com/watch?v=YaXPRqUwItQ&ab_channel=MindBodySoul",
+    plank:
+      "https://www.youtube.com/watch?v=B296mZDhrP4&ab_channel=LivestrongWoman",
+  };
+
+  const exerciseLink = (props && props.location && props.location.exercise)
+    ? exerciseStates.props.location.exercise
+    : "https://www.youtube.com/watch?v=rjc0O7OXS3g&ab_channel=DoctorOz";
+
   const handleStartCaptureClick = React.useCallback(() => {
     // console.log(playerRef);
-    setDuration(playerRef.current.getDuration()*1000);
+    setDuration(playerRef.current.getDuration() * 1000);
     setCapturing(true);
     setPlayState(true);
     mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
@@ -53,7 +67,7 @@ const WebcamStreamCapture = () => {
 
       var bodyFormData = new FormData();
 
-      bodyFormData.append("exercise", "pushup");
+      bodyFormData.append("exercise", props.location.exercise);
       bodyFormData.append("file", blob);
 
       axios({
@@ -87,9 +101,7 @@ const WebcamStreamCapture = () => {
           ref={playerRef}
           width="60vw"
           height="60vh"
-          url={
-            "https://www.youtube.com/watch?v=rUWxSEwctFU&ab_channel=IanRushton"
-          }
+          url={exerciseLink}
           onEnded={handleStopCaptureClick}
         />
       </div>
@@ -102,9 +114,7 @@ const WebcamStreamCapture = () => {
           </Col>
           <Col className="countDownCol">
             {/* {console.log(playerRef.getDuration())} */}
-            {duration && (
-              <Countdown date={Date.now() + duration} />
-            )}
+            {duration && <Countdown date={Date.now() + duration} />}
           </Col>
           <Col className="buttonCol">
             {!capturing && (
