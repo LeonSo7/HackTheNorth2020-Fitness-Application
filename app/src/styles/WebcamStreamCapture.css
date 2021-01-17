@@ -34,11 +34,16 @@
   background-color: #8cc01e;
   width: 185px;
   height: 75px;
-  color: #12182b;
+  color: #fff;
   vertical-align: middle;
   font-size: xx-large;
   font-weight: bold;
   border-radius: 10px;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .workoutStartBtn:hover {
@@ -52,12 +57,17 @@
     background-color: #8cc01e;
     width: 185px;
     height: 75px;
-    color: #12182b;
+    color: #fff;
     vertical-align: middle;
     font-size: xx-large;
     font-weight: bold;
     border-radius: 10px;
     opacity: 50%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 .fillerDiv {
@@ -88,11 +98,16 @@
   background-color: #6dffe7;
   width: 185px;
   height: 75px;
-  color: #12182b;
+  color: #fff;
   vertical-align: middle;
   font-size: xx-large;
   font-weight: bold;
   border-radius: 10px;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .workoutUploadBtn:hover {
@@ -107,12 +122,17 @@
     background-color: #6dffe7;
     width: 185px;
     height: 75px;
-    color: #12182b;
+    color: #fff;
     vertical-align: middle;
     font-size: xx-large;
     font-weight: bold;
     border-radius: 10px;
     opacity: 50%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 .workoutQuitBtn {
@@ -126,11 +146,16 @@
   background-color: #c01e58;
   width: 185px;
   height: 75px;
-  color: #12182b;
+  color: #fff;
   vertical-align: middle;
   font-size: xx-large;
   font-weight: bold;
   border-radius: 10px;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .workoutQuitBtn:hover {
@@ -144,10 +169,15 @@
     background-color: #c01e58;
     width: 185px;
     height: 75px;
-    color: #12182b;
+    color: #fff;
     vertical-align: middle;
     font-size: xx-large;
     font-weight: bold;
     border-radius: 10px;
     opacity: 50%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

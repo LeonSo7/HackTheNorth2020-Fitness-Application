@@ -20,17 +20,21 @@ class Confirmation extends Component {
 
   render() {
     return (
+        
       <div className="mainContainer">
-        <div style={{ fontWeight: "bold", color: "white" }}>
-          Please Confirm Your Selection
+        <div className="flex-container">
+            <div className="container">
+                <div className="text-container">
+                    <h1>Please Confirm Your Selection</h1>
+                    <p>
+                      You have the following workout: {exercises[this.state.exercise]}
+                    </p>
+                    <p>By pressing "Continue", you are consenting to having your video recorded.</p>
+                </div>
+            </div>
         </div>
-        <div style={{ color: "white" }}>
-          You have the following workout: {exercises[this.state.exercise]}
-        </div>
-        <div style={{ color: "white" }}>
-          By pressing "Continue", you are consenting to having your video
-          recorded.
-        </div>
+
+        
         <Row
           style={{
             position: "absolute",
@@ -38,15 +42,16 @@ class Confirmation extends Component {
             width: "100%",
           }}
         >
-          <Link to="/home" style={{ textDecoration: "none" }}>
-            <Col className="back" style={{ marginLeft: "5%" }}>
-              <div>Go Back</div>
-            </Col>
-          </Link>
-          <Col>
-            {" "}
-            <div></div>
-          </Col>
+          <div style={{ paddingBottom: "10vh", paddingLeft: "10vw" }}>
+            <Link to="/home" style={{ textDecoration: "none" }}>
+                <Col className="back">
+                  <div>Go Back</div>
+                </Col>
+            </Link>
+          </div>
+
+          <Col></Col>
+
           <Link
             style={{ textDecoration: "none" }}
             to={{
@@ -56,13 +61,21 @@ class Confirmation extends Component {
               },
             }}
           >
-            <Col
-              className="continue"
-              style={{ alignItems: "right", marginRight: "5%" }}
-            >
-              {" "}
-              <div>Continue</div>
-            </Col>
+            <div style={{ paddingBottom: "10vh", paddingRight: "10vw" }}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to={{
+                  pathname: "/workout",
+                  exerciseProps: {
+                    exerciseSelected: this.state.exercise,
+                  },
+                }}
+              >
+                  <Col className="continue">
+                    <div>Continue</div>
+                  </Col>
+              </Link>
+            </div>
           </Link>
         </Row>
       </div>
