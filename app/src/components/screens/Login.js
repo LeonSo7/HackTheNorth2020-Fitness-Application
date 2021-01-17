@@ -23,9 +23,9 @@ class Login extends Component {
           </Form.Group>
         </div>
         <Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>
-            <div className="loginBtn">
-                Login
-            </div>
+          <div className="loginBtn">
+            Login
+          </div>
         </Link>
       </div>
     );
