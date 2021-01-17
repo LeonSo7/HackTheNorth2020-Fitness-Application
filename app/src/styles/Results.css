@@ -1,0 +1,43 @@
+body {
+    background-color: #12182B;
+}
+
+* {
+    color: #ffffff;
+}
+
+.text-container h1 {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+}
+
+.text-container p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.button-redirect {
+    padding: 10px;
+    background-color: #8cc01e;
+    display: inline-block;
+    width: auto;
+    border-radius: 10px;
+}
+
+.button-redirect:hover {
+    background-color: #a3eb0a;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
