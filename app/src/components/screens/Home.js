@@ -35,7 +35,7 @@ class Home extends Component {
               <Card
                 className="bg-dark text-white card"
                 tabindex="-1"
-                onPress={() => {
+                onClick={() => {
                   this.setState({ exerciseSelected: "pushup" });
                 }}
               >
@@ -53,7 +53,7 @@ class Home extends Component {
               <Card
                 className="bg-dark text-white card"
                 tabindex="-1"
-                onPress={() => {
+                onClick={() => {
                   this.setState({ exerciseSelected: "squat" });
                 }}
               >
@@ -75,7 +75,7 @@ class Home extends Component {
               <Card
                 className="bg-dark text-white card"
                 tabindex="-1"
-                onPress={() => {
+                onClick={() => {
                   this.setState({ exerciseSelected: "situp" });
                 }}
               >
@@ -95,7 +95,7 @@ class Home extends Component {
               <Card
                 className="bg-dark text-white card"
                 tabindex="-1"
-                onPress={() => {
+                onClick={() => {
                   this.setState({ exerciseSelected: "plank" });
                 }}
               >
@@ -123,7 +123,7 @@ class Home extends Component {
             to={{
               pathname: "/confirmation",
               exerciseProps: {
-                exercise: this.state.exerciseSelected,
+                exerciseSelected: this.state.exerciseSelected,
               },
             }}
           >
