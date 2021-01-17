@@ -20,7 +20,7 @@ There is also a history and leaderboard feature which allows you to track your o
 - **Integrating our ML model:** nobody wanted to put their credit card info (cause nobody wants to be *potentially* billed 🙃) into GCP so we were not able to train our model in a feasible amount of time after the user has uploaded their images (read: < 1 minute)) since there would be no GPU to train our model (and also no way to invoke the model to begin training to begin with, since we did our training on Google Colab). The purpose of our model was to generate skeleton images of the user doing the workout (effectively wiping out the background images, while stream lining the colour) so that when we do a structural similarity index (SSIM) calculation, we are only comparing body movement and nothing else. If we had known this was the case, we wouldn't have spent time training our models to begin with...
   
 ![ShootMe](/readme-images/sideBySide.png)
-<center>The original image vs. standardized skeleton image that we trained</center>
+<div align="center">The original image vs. standardized skeleton image that we trained</div>
 
 - **Cross-Origin Resource Sharing (CORS)**: 😭 x 10
 
