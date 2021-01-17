@@ -2,7 +2,7 @@ import "../../styles/Home.css";
 import React, { Component } from "react";
 import { Card, CardDeck, Col } from "react-bootstrap";
 import pushupThumbnail from "../../assets/pushup_thumbnail.jpg";
-import lungesThumbnail from "../../assets/lunges_thumbnail.jpg";
+import planksThumbnail from "../../assets/plank_thumbnail.jpg";
 import situpsThumbnail from "../../assets/situps_thumbnail.JPG";
 import squatsThumbnail from "../../assets/squats_thumbnail.jpg";
 import Header from "../ui/Header";
@@ -71,12 +71,12 @@ class Home extends Component {
               </Card>
               <Card className="bg-dark text-white card">
                 <Card.Img
-                  src={lungesThumbnail}
-                  alt="Squats Thumbnail"
+                  src={planksThumbnail}
+                  alt="Planks Thumbnail"
                   className="cardImg"
                 />
                 <Card.ImgOverlay>
-                  <Card.Title className="cardTxt">LUNGES</Card.Title>
+                  <Card.Title className="cardTxt">PLANKS</Card.Title>
                   {/* <Card.Text>
                     Start slowly and find your balance. Remember that your goal
                     is to use the front leg to push yourself back up!
