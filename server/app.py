@@ -40,9 +40,9 @@ def test():
         abort(400, 'a parameter was not passed in')
 
     exercise = request.form['exercise']
-    storeImages(f'./vid/{exercise}Images', f'{exercise}.mp4') # stores youtube video
-    storeImages(f'./vid/personal_Images', 'personal.mp4') # stores recorded video
-    score = compare_workout("./vid/youtube_images", f"./vid/{exercise}_images")
+    storeImages(f'./vid/{exercise}_images', f'{exercise}.mp4') # stores youtube video
+    storeImages(f'./vid/personal_images', 'personal.mp4') # stores recorded video
+    score = compare_workout(f'./vid/{exercise}_images', f'./vid/personal_images')
 
     #add_score(exercise, score)
     
