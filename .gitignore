@@ -9,7 +9,8 @@ __pycache__/
 # Remove images
 *.png
 *.jpg
-*.mp4
+**/*.mp4
+**/*.webm
 src/pix2pixHD/datasets/*
 
 # Distribution / packaging
