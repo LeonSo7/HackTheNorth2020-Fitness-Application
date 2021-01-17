@@ -1,0 +1,33 @@
+.continue {
+  background-color: #8CC01E;
+  border-radius: 7px;
+  font-weight: bold;
+  padding: 1% 5%;
+  height: 60%;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back {
+  background-color: #C01E58;
+  border-radius: 7px;
+  font-weight: bold;
+  padding: 1% 5%;
+  height: 60%;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

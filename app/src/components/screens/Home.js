@@ -2,7 +2,7 @@ import "../../styles/Home.css";
 import React, { Component } from "react";
 import { Card, CardDeck, Col } from "react-bootstrap";
 import pushupThumbnail from "../../assets/pushup_thumbnail.jpg";
-import lungesThumbnail from "../../assets/lunges_thumbnail.jpg";
+import planksThumbnail from "../../assets/plank_thumbnail.jpg";
 import situpsThumbnail from "../../assets/situps_thumbnail.JPG";
 import squatsThumbnail from "../../assets/squats_thumbnail.jpg";
 import Header from "../ui/Header";
@@ -15,19 +15,30 @@ class Home extends Component {
       exercise: true,
       history: false,
       leaderBoard: false,
+      exercise: "",
     };
   }
 
   render() {
     return (
       <div className="mainContainer">
-        <Header leaderBoard={this.state.leaderBoard} exercise={this.state.exercise} history={this.state.history} />
+        <Header
+          leaderBoard={this.state.leaderBoard}
+          exercise={this.state.exercise}
+          history={this.state.history}
+        />
         <div class="titleText">Select an Exercise</div>
         {/* Exercise Cards */}
         <div className="imgContainer">
           <Col className="imgCol">
             <CardDeck>
-              <Card className="bg-dark text-white card">
+              <Card
+                className="bg-dark text-white card"
+                tabindex="-1"
+                onPress={() => {
+                  this.setState({ exercise: "pushup" });
+                }}
+              >
                 <Card.Img
                   src={pushupThumbnail}
                   alt="Pushup Thumbnail"
@@ -39,7 +50,13 @@ class Home extends Component {
                   {/* <Card.Text>Last updated 10 mins ago</Card.Text> */}
                 </Card.ImgOverlay>
               </Card>
-              <Card className="bg-dark text-white card">
+              <Card
+                className="bg-dark text-white card"
+                tabindex="-1"
+                onPress={() => {
+                  this.setState({ exercise: "squat" });
+                }}
+              >
                 <Card.Img
                   src={squatsThumbnail}
                   alt="Squats Thumbnail"
@@ -55,7 +72,13 @@ class Home extends Component {
               </Card>
             </CardDeck>
             <CardDeck>
-              <Card className="bg-dark text-white card">
+              <Card
+                className="bg-dark text-white card"
+                tabindex="-1"
+                onPress={() => {
+                  this.setState({ exercise: "situp" });
+                }}
+              >
                 <Card.Img
                   src={situpsThumbnail}
                   alt="Sit Ups Thumbnail"
@@ -69,14 +92,20 @@ class Home extends Component {
                   {/* <Card.Text>Last updated 10 mins ago</Card.Text> */}
                 </Card.ImgOverlay>
               </Card>
-              <Card className="bg-dark text-white card">
+              <Card
+                className="bg-dark text-white card"
+                tabindex="-1"
+                onPress={() => {
+                  this.setState({ exercise: "plank" });
+                }}
+              >
                 <Card.Img
-                  src={lungesThumbnail}
-                  alt="Squats Thumbnail"
+                  src={planksThumbnail}
+                  alt="Planks Thumbnail"
                   className="cardImg"
                 />
                 <Card.ImgOverlay>
-                  <Card.Title className="cardTxt">LUNGES</Card.Title>
+                  <Card.Title className="cardTxt">PLANKS</Card.Title>
                   {/* <Card.Text>
                     Start slowly and find your balance. Remember that your goal
                     is to use the front leg to push yourself back up!
@@ -88,11 +117,20 @@ class Home extends Component {
           </Col>
         </div>
         <div className="startBtnDiv">
-          <div className="startBtn">
-            <Link className="startBtnTxt" to="/confirmation" style={{ color: 'black' }}>Start</Link>
-          </div>
+          <Link
+            className="startBtnTxt"
+            style={{ textDecoration: "none" }}
+            to={{
+              pathname: "/confirmation",
+              exerciseProps: {
+                exercise: this.state.exercise,
+              },
+            }}
+          >
+            <div className="startBtn">Start</div>
+          </Link>
         </div>
-      </div >
+      </div>
     );
   }
 }
