@@ -1,6 +1,6 @@
 import Webcam from "react-webcam";
 import React from "react";
-import { ReactPlayer, ControlBar } from "react-player";
+import ReactPlayer from "react-player";
 
 const WebcamStreamCapture = () => {
   const webcamRef = React.useRef(null);
@@ -8,21 +8,20 @@ const WebcamStreamCapture = () => {
   const mediaRecorderRef = React.useRef(null);
   const [capturing, setCapturing] = React.useState(false);
   const [recordedChunks, setRecordedChunks] = React.useState([]);
-  const [videoSource, setVideoSource] = React.useState("https://www.youtube.com/watch?v=ZgMOxkVM8Js&ab_channel=CodingShiksha");
+  const [playState, setPlayState] = React.useState(false);
 
   const handleStartCaptureClick = React.useCallback(() => {
-    if (!capturing) {
-      setCapturing(true);
-      mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
-        mimeType: "video/webm",
-      });
-      mediaRecorderRef.current.addEventListener(
-        "dataavailable",
-        handleDataAvailable
-      );
-      mediaRecorderRef.current.start();
-    }
-  }, [webcamRef, setCapturing, mediaRecorderRef]);
+    setCapturing(true);
+    setPlayState(true);
+    mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
+    mimeType: "video/webm",
+    });
+    mediaRecorderRef.current.addEventListener(
+    "dataavailable",
+    handleDataAvailable
+    );
+    mediaRecorderRef.current.start();
+  }, [webcamRef, setCapturing, setPlayState, mediaRecorderRef]);
 
   const handleDataAvailable = React.useCallback(
     ({ data }) => {
@@ -57,11 +56,17 @@ const WebcamStreamCapture = () => {
 
   return (
     <div>
-      <ReactPlayer ref={playerRef}>
+      {/* <ReactPlayer ref={playerRef}>
         <source src={videoSource} />
         <ControlBar autoHide={true} />
-      </ReactPlayer>
-      {/* <ReactPlayer url={videoSource} /> */}
+      </ReactPlayer> */}
+      <div>Test</div>
+      <ReactPlayer 
+        playing={playState} 
+        ref={playerRef} 
+        url={'https://www.youtube.com/watch?v=rUWxSEwctFU&ab_channel=IanRushton'}
+        onEnded={handleStopCaptureClick}
+        />
       <Webcam audio={false} ref={webcamRef} />
       {capturing ? (
         <button onClick={handleStopCaptureClick}>Stop Capture</button>
