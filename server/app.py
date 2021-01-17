@@ -43,7 +43,8 @@ def calculate_score():
     score <integer>
     '''
     return {'status': 200, 'score': score}
-
+    
+"""
 @app.route('/test', methods=['GET'])
 def test():
     if request.form['exercise'] is None:
@@ -62,6 +63,7 @@ def test():
     score <integer>
     '''
     return {'status': 200, 'score': score}
+"""
 
 def add_score(exercise, score):
     with conn.cursor() as cur:
