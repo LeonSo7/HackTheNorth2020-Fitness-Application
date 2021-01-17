@@ -1,7 +1,5 @@
 import cv2
 import os
-import torch
-import pytube
 import numpy as np
 from tqdm import tqdm
 from pathlib import Path
@@ -17,11 +15,10 @@ def storeImages(folderName, videoName):
 		video_capture = cv2.VideoCapture(str(save_loc.joinpath(videoName)))
 		num = 0
 		storeNum = 0
-		print('Generating images now...')
 
 		while (video_capture.isOpened()):
 			flag, frame = video_capture.read()
-			if flag == False or num >= 2000:
+			if flag == False or storeNum >= 300:
 				break
 
 			# Save every 5 frames for faster computation
@@ -29,7 +26,6 @@ def storeImages(folderName, videoName):
 				cv2.imwrite(str(img_loc.joinpath('{:05}.png'.format(storeNum))), frame)
 				storeNum += 1
 			num += 1
-		print(f'Generated {storeNum} pics')
 
 	# Now, draw the skeletons
 	for idx in tqdm(range(len(os.listdir(str(img_loc))))):

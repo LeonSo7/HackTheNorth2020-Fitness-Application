@@ -1,6 +1,6 @@
 import os
 import cv2
-from skimage import measure
+import skimage.measure as measure
 
 # https://www.pyimagesearch.com/2017/06/19/image-difference-with-opencv-and-python/
 # Make sure to greyscale
