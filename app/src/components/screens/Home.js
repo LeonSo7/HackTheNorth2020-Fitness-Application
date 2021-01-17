@@ -15,7 +15,7 @@ class Home extends Component {
       exercise: true,
       history: false,
       leaderBoard: false,
-      exercise: "",
+      exerciseSelected: "",
     };
   }
 
@@ -54,7 +54,7 @@ class Home extends Component {
                 className="bg-dark text-white card"
                 tabindex="-1"
                 onPress={() => {
-                  this.setState({ exercise: "squat" });
+                  this.setState({ exerciseSelected: "squat" });
                 }}
               >
                 <Card.Img
@@ -76,7 +76,7 @@ class Home extends Component {
                 className="bg-dark text-white card"
                 tabindex="-1"
                 onPress={() => {
-                  this.setState({ exercise: "situp" });
+                  this.setState({ exerciseSelected: "situp" });
                 }}
               >
                 <Card.Img
@@ -96,7 +96,7 @@ class Home extends Component {
                 className="bg-dark text-white card"
                 tabindex="-1"
                 onPress={() => {
-                  this.setState({ exercise: "plank" });
+                  this.setState({ exerciseSelected: "plank" });
                 }}
               >
                 <Card.Img
@@ -123,7 +123,7 @@ class Home extends Component {
             to={{
               pathname: "/confirmation",
               exerciseProps: {
-                exercise: this.state.exercise,
+                exercise: this.state.exerciseSelected,
               },
             }}
           >
