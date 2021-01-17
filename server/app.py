@@ -19,16 +19,19 @@ app = Flask(__name__)
 def calculate_score():
     if request.form['exercise'] is None or request.form['youtube'] is None or request.files['file'] is None:
         abort(400, 'a parameter was not passed in')
+
     request.files['file'].save('./vid/personal.mp4')
     exercise = request.form['exercise']
     youtube_url = request.form['youtube']
 
     YouTube(youtube_url).streams.first().download(output_path='./vid', filename='youtube')
+
     # TODO: calculate score
     score = 1
     #add_score(exercise, score)
-
-    #os.remove('./vid/youtube.mp4')
+    
+    if os.path.isfile('./vid/youtube.mp4'):
+        os.remove('./vid/youtube.mp4')
     '''
     score <integer>
     '''
@@ -75,7 +78,6 @@ def get_scores():
         ...
     ]
     '''
-
     return {'status': 200, 'scores': results}
 
 @app.errorhandler(HTTPException)
