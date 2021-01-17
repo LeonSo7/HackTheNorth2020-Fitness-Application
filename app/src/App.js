@@ -36,9 +36,9 @@ class App extends Component {
           <Route path='/home' component={Home} />
           <Route path="/workout" component={Workout} />
           {/* <Route exact path="/" component={App} /> */}
-        <Route path="/history" component={History} />
-        <Route path="/home" component={Home} />
-        <Route path="/leaderboard" component={LeaderBoard} />
+          <Route path="/history" component={History} />
+          <Route path="/home" component={Home} />
+          <Route path="/leaderboard" component={LeaderBoard} />
         </Switch>
       </main>
     );
