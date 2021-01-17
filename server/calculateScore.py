@@ -23,7 +23,7 @@ def compare_workout(youtube_folder, personal_folder):
 		per_dir = f"{personal_folder}/{personal_images[i]}"
 		cumulative_score += compare_images(yt_dir, per_dir)
 
-	return str(round(cumulative_score / total_images, 2) * 100)
+	return int(round(cumulative_score / total_images, 2) * 100)
 
 # score = compare_workout("../vid/youtube_images", "../vid/personal_images"	)
 # print(score)
