@@ -16,16 +16,20 @@ def storeImages(folderName, videoName):
 	if len(os.listdir(f'../vid/{folderName}')) < 100:
 		video_capture = cv2.VideoCapture(str(save_loc.joinpath(videoName)))
 		num = 0
+		storeNum = 0
 		print('Generating images now...')
 
 		while (video_capture.isOpened()):
 			flag, frame = video_capture.read()
-			if flag == False or num >= 1000:
+			if flag == False or num >= 2000:
 				break
-			cv2.imwrite(str(img_loc.joinpath('{:05}.png'.format(num))), frame)
-			num += 1
 
-		print('Generated %d pics' % num)
+			# Save every 5 frames for faster computation
+			if (num % 5 == 0):
+				cv2.imwrite(str(img_loc.joinpath('{:05}.png'.format(storeNum))), frame)
+				storeNum += 1
+			num += 1
+		print(f'Generated {storeNum} pics')
 
 	# Now, draw the skeletons
 	for idx in tqdm(range(len(os.listdir(str(img_loc))))):
@@ -40,5 +44,5 @@ def storeImages(folderName, videoName):
 
 		cv2.imwrite(str(img_loc.joinpath('{:05}.png'.format(idx))), img)
 
-storeImages('personal_images', 'personal.mp4')
-storeImages('youtube_images', 'youtube.mp4')
+# storeImages('personal_images', 'personal.mp4')
+# storeImages('youtube_images', 'youtube.mp4')

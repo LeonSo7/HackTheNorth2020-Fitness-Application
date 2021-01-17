@@ -20,16 +20,13 @@ def compare_workout():
 
 	cumulative_score = 0
 	total_images = min(len(youtube_images), len(personal_images))
-	total_images_analyzed = 0
 
 	for i in range(total_images):
-		if i % 10 == 0:
-			yt_dir = f"{youtube_folder}/{youtube_images[i]}"
-			per_dir = f"{personal_folder}/{personal_images[i]}"
-			cumulative_score += compare_images(yt_dir, per_dir)
-			total_images_analyzed += 1
+		yt_dir = f"{youtube_folder}/{youtube_images[i]}"
+		per_dir = f"{personal_folder}/{personal_images[i]}"
+		cumulative_score += compare_images(yt_dir, per_dir)
 
-	return str(round(cumulative_score / total_images_analyzed, 2) * 100)
+	return str(round(cumulative_score / total_images, 2) * 100)
 
 # score = compare_workout()
-# print(f"Score was {score}")
+# print(score)
