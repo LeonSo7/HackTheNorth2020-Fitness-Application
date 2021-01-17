@@ -15,19 +15,30 @@ class Home extends Component {
       exercise: true,
       history: false,
       leaderBoard: false,
+      exercise: "",
     };
   }
 
   render() {
     return (
       <div className="mainContainer">
-        <Header leaderBoard={this.state.leaderBoard} exercise={this.state.exercise} history={this.state.history} />
+        <Header
+          leaderBoard={this.state.leaderBoard}
+          exercise={this.state.exercise}
+          history={this.state.history}
+        />
         <div class="titleText">Select an Exercise</div>
         {/* Exercise Cards */}
         <div className="imgContainer">
           <Col className="imgCol">
             <CardDeck>
-              <Card className="bg-dark text-white card">
+              <Card
+                className="bg-dark text-white card"
+                tabindex="-1"
+                onPress={() => {
+                  this.setState({ exercise: "pushup" });
+                }}
+              >
                 <Card.Img
                   src={pushupThumbnail}
                   alt="Pushup Thumbnail"
@@ -39,7 +50,13 @@ class Home extends Component {
                   {/* <Card.Text>Last updated 10 mins ago</Card.Text> */}
                 </Card.ImgOverlay>
               </Card>
-              <Card className="bg-dark text-white card">
+              <Card
+                className="bg-dark text-white card"
+                tabindex="-1"
+                onPress={() => {
+                  this.setState({ exercise: "squat" });
+                }}
+              >
                 <Card.Img
                   src={squatsThumbnail}
                   alt="Squats Thumbnail"
@@ -55,7 +72,13 @@ class Home extends Component {
               </Card>
             </CardDeck>
             <CardDeck>
-              <Card className="bg-dark text-white card">
+              <Card
+                className="bg-dark text-white card"
+                tabindex="-1"
+                onPress={() => {
+                  this.setState({ exercise: "situp" });
+                }}
+              >
                 <Card.Img
                   src={situpsThumbnail}
                   alt="Sit Ups Thumbnail"
@@ -69,7 +92,13 @@ class Home extends Component {
                   {/* <Card.Text>Last updated 10 mins ago</Card.Text> */}
                 </Card.ImgOverlay>
               </Card>
-              <Card className="bg-dark text-white card">
+              <Card
+                className="bg-dark text-white card"
+                tabindex="-1"
+                onPress={() => {
+                  this.setState({ exercise: "plank" });
+                }}
+              >
                 <Card.Img
                   src={planksThumbnail}
                   alt="Planks Thumbnail"
@@ -88,11 +117,20 @@ class Home extends Component {
           </Col>
         </div>
         <div className="startBtnDiv">
-          <div className="startBtn">
-            <Link className="startBtnTxt" to="/confirmation" style={{ color: 'black' }}>Start</Link>
-          </div>
+          <Link
+            className="startBtnTxt"
+            style={{ textDecoration: "none" }}
+            to={{
+              pathname: "/confirmation",
+              exerciseProps: {
+                exercise: this.state.exercise,
+              },
+            }}
+          >
+            <div className="startBtn">Start</div>
+          </Link>
         </div>
-      </div >
+      </div>
     );
   }
 }
