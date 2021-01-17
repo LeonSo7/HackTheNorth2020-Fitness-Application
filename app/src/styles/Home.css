@@ -23,7 +23,7 @@ body {
 
 .cardTxt {
   color: #12182B !important;
-  font-size: 80px !important;
+  font-size: 72px !important;
   font-weight: bold !important;
 }
 
@@ -35,7 +35,6 @@ body {
 .startBtn {
   background-color: #fff;
   width: 175px;
-  height: 70px;
   margin-left:auto;
   margin-right:auto;
   color: #12182B;
@@ -52,7 +51,12 @@ body {
   background-color: #12182B;
 }
 
+.startBtnTxt{
+  padding: 5%;
+  text-align: center;
+}
+
 .titleText {
   color: #ffffff;
-  font-size: 80px !important;
+  font-size: 72px !important;
 }

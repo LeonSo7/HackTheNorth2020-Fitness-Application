@@ -50,36 +50,36 @@ class ExerciseInfoSection extends Component {
                     {
                       (this.state.pu) ? (
                         <>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Push Ups</div></Col>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Push Ups</h1></Col>
+                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                          <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                         </>
                       )
                         :
                         (this.state.squats) ? (
                           <>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Squats</div></Col>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Squats</h1></Col>
+                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                            <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                           </>
                         )
                           :
                           (this.state.su) ? (
                             <>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Sit Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Sit Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                             </>
                           )
                             :
                             <>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="currentPageButton">Planks</div></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
                             </>
                     }
                   </Row>
@@ -114,38 +114,36 @@ class ExerciseInfoSection extends Component {
                         {
                           (this.state.pu) ? (
                             <>
-
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Push Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
-
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Push Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                             </>
                           )
                             :
                             (this.state.squats) ? (
                               <>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Squats</div></Col>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Squats</h1></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                               </>
                             )
                               :
                               (this.state.su) ? (
                                 <>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Sit Ups</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Sit Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                                 </>
                               )
                                 :
                                 <>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="currentPageButton">Planks</div></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
                                 </>
                         }
 
