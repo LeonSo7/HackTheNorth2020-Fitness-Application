@@ -15,6 +15,10 @@
   align-items: center;
 }
 
+.continue:hover {
+  opacity: 80%;
+}
+
 .back {
   background-color: #C01E58;
   border-radius: 7px;
@@ -30,4 +34,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.back:hover {
+  opacity: 80%;
 }
