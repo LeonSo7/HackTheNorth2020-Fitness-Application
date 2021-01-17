@@ -27,7 +27,7 @@ class Confirmation extends Component {
                 <div className="text-container">
                     <h1>Please Confirm Your Selection</h1>
                     <p>
-                      You have the following workout: {exercises[this.state.exercise]}
+                      You have the following workout: <b>{exercises[this.state.exercise]}</b>
                     </p>
                     <p>By pressing "Continue", you are consenting to having your video recorded.</p>
                 </div>
