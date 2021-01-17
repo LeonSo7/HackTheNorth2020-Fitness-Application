@@ -41,6 +41,25 @@
   border-radius: 10px;
 }
 
+.workoutStartBtn:hover {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 6%;
+    margin-bottom: 2%;
+    padding-top: 1.25px;
+    text-align: center;
+    background-color: #8cc01e;
+    width: 185px;
+    height: 75px;
+    color: #12182b;
+    vertical-align: middle;
+    font-size: xx-large;
+    font-weight: bold;
+    border-radius: 10px;
+    opacity: 50%;
+  }
+
 .fillerDiv {
     position: absolute;
     bottom: 0;
@@ -76,6 +95,26 @@
   border-radius: 10px;
 }
 
+.workoutUploadBtn:hover {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 2%;
+    right: 0;
+    margin-right: 6%;
+    margin-bottom: 2%;
+    padding-top: 1.25px;
+    text-align: center;
+    background-color: #6dffe7;
+    width: 185px;
+    height: 75px;
+    color: #12182b;
+    vertical-align: middle;
+    font-size: xx-large;
+    font-weight: bold;
+    border-radius: 10px;
+    opacity: 50%;
+  }
+
 .workoutQuitBtn {
   margin-right: 10%;
   position: absolute;
@@ -93,3 +132,22 @@
   font-weight: bold;
   border-radius: 10px;
 }
+
+.workoutQuitBtn:hover {
+    margin-right: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 2%;
+    padding-top: 1.25px;
+    text-align: center;
+    background-color: #c01e58;
+    width: 185px;
+    height: 75px;
+    color: #12182b;
+    vertical-align: middle;
+    font-size: xx-large;
+    font-weight: bold;
+    border-radius: 10px;
+    opacity: 50%;
+  }
