@@ -11,7 +11,7 @@ class Login extends Component {
   render() {
     return (
       <div className="loginContainer">
-        <div className="welcomeMsg">Welcome to PHATPHOBIA</div>
+        <div className="welcomeMsg">Welcome to WEE FIT</div>
         <div className="inputFields">
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Control size="lg" type="username" placeholder="username" />
@@ -22,7 +22,7 @@ class Login extends Component {
             <Form.Control size="lg" type="password" placeholder="password" />
           </Form.Group>
         </div>
-        <Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>
+        <Link to="/home" style={{ textDecoration: 'none'}}>
           <div className="loginBtn">
             Login
           </div>

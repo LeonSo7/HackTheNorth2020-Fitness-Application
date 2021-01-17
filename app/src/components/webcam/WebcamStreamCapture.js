@@ -6,6 +6,7 @@ import axios from "axios";
 import { Row, Col } from "react-bootstrap";
 import Countdown from "react-countdown";
 import {withRouter} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const WebcamStreamCapture = (props) => {
   const webcamRef = React.useRef(null);
@@ -26,12 +27,11 @@ const WebcamStreamCapture = (props) => {
       "https://www.youtube.com/watch?v=B296mZDhrP4&ab_channel=LivestrongWoman",
   };
 
-  const exerciseLink = (props && props.location && props.location.exercise)
-    ? exerciseStates.props.location.exercise
+  const exerciseLink = (props && props.exerciseSelected)
+    ? exerciseStates[props.exerciseSelected]
     : "https://www.youtube.com/watch?v=rjc0O7OXS3g&ab_channel=DoctorOz";
 
   const handleStartCaptureClick = React.useCallback(() => {
-    // console.log(playerRef);
     setDuration(playerRef.current.getDuration() * 1000);
     setCapturing(true);
     setPlayState(true);
@@ -68,7 +68,7 @@ const WebcamStreamCapture = (props) => {
 
       var bodyFormData = new FormData();
 
-      bodyFormData.append("exercise", props.location.exercise);
+      bodyFormData.append("exercise", props.exerciseSelected);
       bodyFormData.append("file", blob);
 
       axios({
@@ -110,9 +110,11 @@ const WebcamStreamCapture = (props) => {
       <div className="exerciseBtnDiv">
         <Row>
           <Col className="buttonCol">
-            <div onClick={() => {}} className="workoutQuitBtn">
-              Quit
-            </div>
+          <Link to="/home" style={{ textDecoration: 'none'}}>
+                <div onClick={() => {}} className="workoutQuitBtn">
+                    Quit
+                </div>
+            </Link>
           </Col>
           <Col className="countDownCol">
             {/* {console.log(playerRef.getDuration())} */}

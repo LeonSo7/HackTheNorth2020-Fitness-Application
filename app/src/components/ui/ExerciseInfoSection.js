@@ -131,7 +131,7 @@ class ExerciseInfoSection extends Component {
             {
               (this.state.title === "Leaderboard") ? (
                 <>
-                  <Row>
+                  {/* <Row>
                     {
                       (this.state.pu) ? (
                         <>
@@ -167,8 +167,8 @@ class ExerciseInfoSection extends Component {
                               <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
                             </>
                     }
-                  </Row>
-                  <Container className="greyBackground" style={{ padding: '2%', justifyContent: 'center', alignItems: 'center', height: '50vh' }} >
+                  </Row> */}
+                  <Container className="greyBackground" style={{ padding: '2%', justifyContent: 'center', alignItems: 'center', height: '62vh' }} >
                     <Row style={{ textAlign: 'center', fontSize: '30px', fontWeight: 'bold', textDecoration: 'underline', marginTop: '2%' }}>
                       <Col>Name</Col>
                       <Col>Scores</Col>

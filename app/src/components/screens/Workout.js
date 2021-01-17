@@ -14,7 +14,8 @@ class Workout extends Component {
   render() {
     return (
       <div className="mainContainer">
-        <WebcamStreamCapture exerciseSelect={this.state.exercise}/>
+        {console.log(this.state.exercise)}
+        <WebcamStreamCapture exerciseSelected={this.state.exercise}/>
       </div>
     );
   }

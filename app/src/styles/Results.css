@@ -22,10 +22,11 @@ body {
     display: inline-block;
     width: auto;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 .button-redirect:hover {
-    background-color: #a3eb0a;
+    opacity: 80%;
 }
 
 .flex-container {
