@@ -26,12 +26,11 @@ const WebcamStreamCapture = (props) => {
       "https://www.youtube.com/watch?v=B296mZDhrP4&ab_channel=LivestrongWoman",
   };
 
-  const exerciseLink = (props && props.location && props.location.exercise)
-    ? exerciseStates.props.location.exercise
+  const exerciseLink = (props && props.exerciseSelected)
+    ? exerciseStates[props.exerciseSelected]
     : "https://www.youtube.com/watch?v=rjc0O7OXS3g&ab_channel=DoctorOz";
 
   const handleStartCaptureClick = React.useCallback(() => {
-    // console.log(playerRef);
     setDuration(playerRef.current.getDuration() * 1000);
     setCapturing(true);
     setPlayState(true);
@@ -68,7 +67,7 @@ const WebcamStreamCapture = (props) => {
 
       var bodyFormData = new FormData();
 
-      bodyFormData.append("exercise", props.location.exercise);
+      bodyFormData.append("exercise", props.exerciseSelected);
       bodyFormData.append("file", blob);
 
       axios({
