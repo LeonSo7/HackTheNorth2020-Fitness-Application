@@ -1,6 +1,19 @@
 import "../../styles/ExerciseInfoSection.css";
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
+import {
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  Line,
+  LineChart,
+} from "recharts";
+
+let pushupData = [
+];
 
 class ExerciseInfoSection extends Component {
   constructor(props) {
@@ -10,21 +23,41 @@ class ExerciseInfoSection extends Component {
       pu: this.props.pu,
       squat: this.props.squat,
       su: this.props.su,
-      plank: this.props.plank
+      plank: this.props.plank,
+      data: pushupData
     };
+  }
+
+  componentDidMount() {
+    axios.get("https://cors-anywhere.herokuapp.com/http://35.229.83.24:5000/scores?exercise=pushup").then(res => {
+      if (res.status === 200) {
+        let count = 1
+        this.setState({
+          data: res.data.scores
+            .map(item => {
+              const newItem = {
+                "score": item[2],
+                "date": count
+              };
+              pushupData.push(newItem)
+              count = count + 1
+            }),
+        });
+      }
+    });
   }
 
   render() {
     return (
       <div>
         <div className="titleText" style={{ marginBottom: '0.5%' }}>{this.state.title}</div>
+        <div>{this.state.data}</div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Container className="whiteBackground" style={{ padding: '2%', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
             {
               (this.state.title == "Leaderboard") ? (
                 <>
                   <Row>
-
                     {
                       (this.state.pu) ? (
                         <>
@@ -92,10 +125,12 @@ class ExerciseInfoSection extends Component {
                         {
                           (this.state.pu) ? (
                             <>
+
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Push Ups</div></Col>
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
                               <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+
                             </>
                           )
                             :
@@ -127,6 +162,18 @@ class ExerciseInfoSection extends Component {
 
                       </>
                     </Row>
+                    {console.log(pushupData)}
+                    <LineChart
+                      width={500}
+                      height={500}
+                      data={pushupData}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="date" interval={0} angle={30} dx={20} />
+                      <YAxis />
+                      <Legend />
+                      <Line type="monotone" dataKey="score" stroke="#8884d8" activeDot={{ r: 8 }} />
+                    </LineChart>
                   </>
                 )
             }
