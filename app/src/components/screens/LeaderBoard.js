@@ -19,7 +19,7 @@ class LeaderBoard extends Component {
       <div className="mainContainer" >
         <Header leaderBoard={this.state.leaderBoard} exercise={this.state.exercise} history={this.state.history} />
         {/* Exercise Cards */}
-        <ExerciseInfoSection title={this.state.title} pu={true} />
+        <ExerciseInfoSection title={this.state.title} pu={true} squat={false} su={false} plank={false}/>
       </div >
     );
   }

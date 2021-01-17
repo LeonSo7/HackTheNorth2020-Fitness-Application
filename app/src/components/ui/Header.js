@@ -23,16 +23,16 @@ class Header extends Component {
               {
                 (this.state.exercise) ? (
                   <>
-                    <Col style={{ paddingRight: 0, paddingLeft: '1%', marginLeft: '3%' }} > <div className="currentPageButton" >Select Exercise</div></Col>
-                    <Col style={{ paddingRight: 0, paddingLeft: '1%' }} >
-                      <div className="topButtons">
+                    <Col style={{ paddingRight: 0, paddingLeft: '1%', marginLeft: '3%' }} > <h1 className="currentPageButton" >Select Exercise</h1></Col>
+                    <Col style={{ paddingRight: 0, paddingLeft: '1%'}} >
+                      <h1 className="topButtons">
                         <Link to="/history" style={{ textDecoration: 'none', color: 'black' }}>View History</Link>
-                      </div>
+                      </h1>
                     </Col>
                     <Col style={{ paddingRight: 0, paddingLeft: '1%' }} >
-                      <div className="topButtons">
+                      <h1 className="topButtons">
                         <Link to="/leaderboard" style={{ textDecoration: 'none', color: 'black' }}>Leaderboard</Link>
-                      </div>
+                      </h1>
                     </Col>
                     <Col xs lg="8"><div className="welcome" style={{ textAlign: 'right', padding: '15px' }}> Welcome, Sharon </div></Col>
                   </>
@@ -40,33 +40,33 @@ class Header extends Component {
                   :
                   (this.state.history) ? (
                     <>
-                      <Col style={{ paddingRight: 0, paddingLeft: '1%' }} >
-                        <div className="topButtons">
+                      <Col style={{ paddingRight: 0, paddingLeft: '1%', marginLeft: '3%' }} >
+                        <h1 className="topButtons">
                           <Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>Select Exercise</Link>
-                        </div>
+                        </h1>
                       </Col>
-                      <Col style={{ paddingRight: 0, paddingLeft: '1%' }} > <div className="currentPageButton" onClick={<History />} >View History</div></Col>
+                      <Col style={{ paddingRight: 0, paddingLeft: '1%' }} > <h1 className="currentPageButton" onClick={<History />} >View History</h1></Col>
                       <Col style={{ paddingRight: 0, paddingLeft: '1%' }} >
-                        <div className="topButtons">
+                        <h1 className="topButtons">
                           <Link to="/leaderboard" style={{ textDecoration: 'none', color: 'black' }}>Leaderboard</Link>
-                        </div>
+                        </h1>
                       </Col>
                       <Col xs lg="8"><div className="welcome" style={{ textAlign: 'right', padding: '15px' }}> Welcome, Sharon </div></Col>
                     </>
                   )
                     :
                     <>
-                      <Col style={{ paddingRight: 0, paddingLeft: '1%' }} >
-                        <div className="topButtons">
+                      <Col style={{ paddingRight: 0, paddingLeft: '1%', marginLeft: '3%' }} >
+                        <h1 className="topButtons">
                           <Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>Select Exercise</Link>
-                        </div>
+                        </h1>
                       </Col>
                       <Col style={{ paddingRight: 0, paddingLeft: '1%' }} >
-                        <div className="topButtons">
+                        <h1 className="topButtons">
                           <Link to="/history" style={{ textDecoration: 'none', color: 'black' }}>View History</Link>
-                        </div>
+                        </h1>
                       </Col>
-                      <Col style={{ paddingRight: 0, paddingLeft: '1%' }}><div className="currentPageButton">Leaderboard</div></Col>
+                      <Col style={{ paddingRight: 0, paddingLeft: '1%' }}><h1 className="currentPageButton">Leaderboard</h1></Col>
                       <Col xs lg="8"><div className="welcome" style={{ textAlign: 'right', padding: '15px' }}> Welcome, Sharon </div></Col>
                     </>
               }

@@ -20,7 +20,7 @@ class Home extends Component {
   render() {
     return (
       <div className="mainContainer">
-        <Header exercise={this.state.exercise} />
+        <Header leaderBoard={this.state.leaderBoard} exercise={this.state.exercise} history={this.state.history} />
         <div class="titleText">Select an Exercise</div>
         {/* Exercise Cards */}
         <div className="imgContainer">

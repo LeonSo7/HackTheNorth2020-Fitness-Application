@@ -12,8 +12,6 @@ import {
   LineChart,
 } from "recharts";
 
-let pushupData = [
-];
 
 class ExerciseInfoSection extends Component {
   constructor(props) {
@@ -24,25 +22,16 @@ class ExerciseInfoSection extends Component {
       squat: this.props.squat,
       su: this.props.su,
       plank: this.props.plank,
-      data: pushupData
+      data: []
     };
   }
 
   componentDidMount() {
     axios.get("https://cors-anywhere.herokuapp.com/http://35.229.83.24:5000/scores?exercise=pushup").then(res => {
       if (res.status === 200) {
-        let count = 1
-        this.setState({
-          data: res.data.scores
-            .map(item => {
-              const newItem = {
-                "score": item[2],
-                "date": count
-              };
-              pushupData.push(newItem)
-              count = count + 1
-            }),
-        });
+        const scores = res.data.scores.map((ele, i) => ([ele[2], i+1]));
+        console.log(scores)
+        this.setState({data: scores});
       }
     });
   }
@@ -61,36 +50,36 @@ class ExerciseInfoSection extends Component {
                     {
                       (this.state.pu) ? (
                         <>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Push Ups</div></Col>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Push Ups</h1></Col>
+                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                          <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                         </>
                       )
                         :
                         (this.state.squats) ? (
                           <>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Squats</div></Col>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Squats</h1></Col>
+                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                            <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                           </>
                         )
                           :
                           (this.state.su) ? (
                             <>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Sit Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Sit Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                             </>
                           )
                             :
                             <>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="currentPageButton">Planks</div></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
                             </>
                     }
                   </Row>
@@ -125,48 +114,46 @@ class ExerciseInfoSection extends Component {
                         {
                           (this.state.pu) ? (
                             <>
-
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Push Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
-
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Push Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                             </>
                           )
                             :
                             (this.state.squats) ? (
                               <>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Squats</div></Col>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Squats</h1></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                                <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                               </>
                             )
                               :
                               (this.state.su) ? (
                                 <>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="currentPageButton">Sit Ups</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="topButtons">Planks</div></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Sit Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                                 </>
                               )
                                 :
                                 <>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Push Ups</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Squats</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <div className="topButtons">Sit Ups</div></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <div className="currentPageButton">Planks</div></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
                                 </>
                         }
 
                       </>
                     </Row>
-                    {console.log(pushupData)}
+                    {console.log(this.state.data)}
                     <LineChart
                       width={500}
                       height={500}
-                      data={pushupData}
+                      data={this.state.data.map((ele) => ({score: ele[0], date: ele[1]}))}
                     >
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="date" interval={0} angle={30} dx={20} />
