@@ -7,6 +7,9 @@ import logging
 import psycopg2
 from psycopg2.extensions import parse_dsn
 
+from processVideos import storeImages
+from calculateScore import compare_images, compare_workout
+
 load_dotenv()
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_USER = os.getenv('DB_USER')
@@ -25,9 +28,26 @@ def calculate_score():
     # TODO: calculate score
     score = 1
     #add_score(exercise, score)
+
+    '''
+    score <integer>
+    '''
+    return {'status': 200, 'score': score}
+
+@app.route('/test', methods=['GET'])
+def test():
+    if request.form['exercise'] is None:
+        abort(400, 'a parameter was not passed in')
+
+    exercise = request.form['exercise']
+    storeImages(f'./vid/{exercise}Images', f'{exercise}.mp4') # stores youtube video
+    storeImages(f'./vid/personal_Images', 'personal.mp4') # stores recorded video
+    score = compare_workout("./vid/youtube_images", f"./vid/{exercise}_images")
+
+    #add_score(exercise, score)
     
-    if os.path.isfile('./vid/youtube.mp4'):
-        os.remove('./vid/youtube.mp4')
+    #if os.path.isfile('./vid/youtube.mp4'):
+    #    os.remove('./vid/youtube.mp4')
     '''
     score <integer>
     '''
