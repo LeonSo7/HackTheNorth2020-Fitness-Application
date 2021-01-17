@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, abort
 from werkzeug.exceptions import HTTPException
 
 import os
@@ -7,21 +7,28 @@ import logging
 import psycopg2
 from psycopg2.extensions import parse_dsn
 
+from pytube import YouTube
+
 load_dotenv()
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_USER = os.getenv('DB_USER')
 app = Flask(__name__)
 
-# send post request with {exercise: <name of exercise>}
+# send post request with file
 @app.route('/calculate', methods=['POST'])
 def calculate_score():
-    data = request.get_json()
-    if data['exercise'] is None:
-        abort(400, 'exercise parameter was not passed in')
+    if request.form['exercise'] is None or request.form['youtube'] is None or request.files['file'] is None:
+        abort(400, 'a parameter was not passed in')
+    request.files['file'].save('./vid/personal.mp4')
+    exercise = request.form['exercise']
+    youtube_url = request.form['youtube']
+
+    YouTube(youtube_url).streams.first().download(output_path='./vid', filename='youtube')
     # TODO: calculate score
     score = 1
-    add_score(data['exercise'], score)
+    #add_score(exercise, score)
 
+    #os.remove('./vid/youtube.mp4')
     '''
     score <integer>
     '''
