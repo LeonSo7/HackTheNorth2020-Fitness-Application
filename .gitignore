@@ -5,8 +5,11 @@ __pycache__/
 
 # C extensions
 *.so
+
+# Remove images
 *.png
 *.jpg
+*.mp4
 src/pix2pixHD/datasets/*
 
 # Distribution / packaging
