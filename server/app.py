@@ -1,5 +1,6 @@
 from flask import Flask, request, abort
 from werkzeug.exceptions import HTTPException
+from flask_cors import CORS
 
 import os
 from dotenv import load_dotenv
@@ -16,6 +17,7 @@ load_dotenv()
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_USER = os.getenv('DB_USER')
 app = Flask(__name__)
+cors = CORS(app)
 
 # send post request with file
 @app.route('/calculate', methods=['POST'])
