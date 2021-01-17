@@ -6,7 +6,7 @@ body {
     height: 100vh;
 }
 
-.startBtn {
+.vidStartBtn {
   background-color: #fff;
   width: 175px;
   height: 70px;
@@ -20,7 +20,7 @@ body {
   border-radius: 10px;
 }
 
-.startBtnDiv {
+.vidStartBtnDiv {
   padding: 2%;
   text-align: center;
   background-color: #12182b;

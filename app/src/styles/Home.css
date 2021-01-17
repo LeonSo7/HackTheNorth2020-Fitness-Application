@@ -33,7 +33,7 @@ body {
 }
 
 .startBtn {
-  background-color: #97C055;
+  background-color: #fff;
   width: 175px;
   height: 70px;
   margin-left:auto;
@@ -54,4 +54,5 @@ body {
 
 .titleText {
   color: #ffffff;
+  font-size: 80px !important;
 }

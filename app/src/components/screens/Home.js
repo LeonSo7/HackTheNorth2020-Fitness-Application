@@ -19,10 +19,11 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="mainContainer" >
+      <div className="mainContainer">
         <Header exercise={this.state.exercise} />
+        <div class="titleText">Select an Exercise</div>
         {/* Exercise Cards */}
-        <div className="imgContainer" >
+        <div className="imgContainer">
           <Col className="imgCol">
             <CardDeck>
               <Card className="bg-dark text-white card">
