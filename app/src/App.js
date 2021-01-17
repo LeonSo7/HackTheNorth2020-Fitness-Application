@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './styles/App.css';
 import React, { Component } from 'react';
+import Login from './components/screens/Login';
 import Home from './components/screens/Home';
 import Workout from './components/screens/Workout';
 import History from './components/screens/History';
@@ -31,9 +32,10 @@ class App extends Component {
       <main className="App" >
         <Switch>
           {/* Routes */}
-          <Route path='/' component={Home} exact />
+          <Route path='/' component={Login} exact />
+          <Route path='/home' component={Home} />
           <Route path="/workout" component={Workout} />
-          <Route exact path="/" component={App} />
+          {/* <Route exact path="/" component={App} /> */}
         <Route path="/history" component={History} />
         <Route path="/home" component={Home} />
         <Route path="/leaderboard" component={LeaderBoard} />

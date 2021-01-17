@@ -1,0 +1,30 @@
+.loginContainer {
+    text-align: center;
+    vertical-align: center;
+    color: #fff;
+    font-size: 100px;
+    font-weight: bold;
+    margin-top: 8%;
+}
+
+.welcomeMsg {
+    margin-bottom: 2%;
+}
+
+.inputFields {
+    width: 20%;
+    margin-left: 40%;
+    margin-bottom: 30px;
+}
+
+.loginBtn {
+    margin-top: 3%;
+    width: 20%;
+    margin-left: 40%;
+    margin-bottom: 30px;
+    font-size: 40px;
+    color: #12182B;
+    background-color: #55BEC0;
+    border-radius: 10px;
+    height: 60px;
+}
