@@ -34,7 +34,7 @@ class Header extends Component {
                         <Link to="/leaderboard" style={{ textDecoration: 'none', color: 'black' }}>Leaderboard</Link>
                       </h1>
                     </Col>
-                    <Col xs lg="8"><div className="welcome" style={{ textAlign: 'right', padding: '15px' }}> Welcome, Sharon </div></Col>
+                    <Col xs lg="8"><div className="welcome" style={{ textAlign: 'right', padding: '15px' }}> Welcome, Leon Sob </div></Col>
                   </>
                 )
                   :
@@ -51,7 +51,7 @@ class Header extends Component {
                           <Link to="/leaderboard" style={{ textDecoration: 'none', color: 'black' }}>Leaderboard</Link>
                         </h1>
                       </Col>
-                      <Col xs lg="8"><div className="welcome" style={{ textAlign: 'right', padding: '15px' }}> Welcome, Sharon </div></Col>
+                      <Col xs lg="8"><div className="welcome" style={{ textAlign: 'right', padding: '15px' }}> Welcome, Leon Sob </div></Col>
                     </>
                   )
                     :
@@ -67,7 +67,7 @@ class Header extends Component {
                         </h1>
                       </Col>
                       <Col style={{ paddingRight: 0, paddingLeft: '1%' }}><h1 className="currentPageButton">Leaderboard</h1></Col>
-                      <Col xs lg="8"><div className="welcome" style={{ textAlign: 'right', padding: '15px' }}> Welcome, Sharon </div></Col>
+                      <Col xs lg="8"><div className="welcome" style={{ textAlign: 'right', padding: '15px' }}> Welcome, Leon Sob </div></Col>
                     </>
               }
 
