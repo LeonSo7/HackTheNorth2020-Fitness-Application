@@ -78,5 +78,5 @@ def resource_not_found(err):
 
 if __name__ == '__main__':
     conn = psycopg2.connect(f'postgres://{DB_USER}:{DB_PASSWORD}@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/arid-otter-232.defaultdb?sslmode=verify-full&sslrootcert=cc-ca.crt')
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True, port=5000)
     conn.close()
