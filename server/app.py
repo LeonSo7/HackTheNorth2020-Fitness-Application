@@ -1,6 +1,6 @@
 from flask import Flask, request, abort
 from werkzeug.exceptions import HTTPException
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 import os
 from dotenv import load_dotenv
@@ -16,6 +16,13 @@ from calculateScore import compare_images, compare_workout
 load_dotenv()
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_USER = os.getenv('DB_USER')
+DB_PASSWORD2 = os.getenv('DB_PASSWORD2')
+DB_USER2 = os.getenv('DB_USER2')
+TABLE_NAME = 'amarkScore'
+# original was "Score"
+CONN_STRING = f'postgres://{DB_USER2}:{DB_PASSWORD2}@trusty-lemur-8c3.gcp-northamerica-northeast1.cockroachlabs.cloud:26257/danielye?sslmode=verify-full&sslrootcert=trusty-lemur-ca.crt'
+#original f'postgres://{DB_USER}:{DB_PASSWORD}@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/arid-otter-232.defaultdb?sslmode=verify-full&sslrootcert=cc-ca.crt'
+
 app = Flask(__name__)
 cors = CORS(app)
 
@@ -24,13 +31,15 @@ cors = CORS(app)
 def calculate_score():
     if request.form['exercise'] is None or request.files['file'] is None:
         abort(400, 'a parameter was not passed in')
-
+    
+    exercise = request.form['exercise']
     store_file_loc = './vid/personal.webm'
     dest_file_loc = './vid/personal.mp4'
+    #dest_file_loc2 = './vid/personal2.mp4'
+    #youtube_file_loc = f'./vid/{exercise}.mp4'
     request.files['file'].save(store_file_loc)
     subprocess.call(['ffmpeg', '-y', '-i', store_file_loc, dest_file_loc])
 
-    exercise = request.form['exercise']
     storeImages(f'youtube_{exercise}_images', f'{exercise}.mp4') # stores youtube video
     storeImages(f'personal_images', 'personal.mp4') # stores recorded video
     score = compare_workout(f'./vid/youtube_{exercise}_images', f'./vid/personal_images')
@@ -70,7 +79,7 @@ def test():
 def add_score(exercise, score):
     with conn.cursor() as cur:
         cur.execute(f'''
-        INSERT INTO Score (Exercise, Score)
+        INSERT INTO {TABLE_NAME} (Exercise, Score)
         VALUES (
             '{exercise}',
             {score}
@@ -88,7 +97,7 @@ def get_scores():
 
     with conn.cursor() as cur:
         cur.execute(f'''
-        SELECT * FROM Score
+        SELECT * FROM {TABLE_NAME}
         where 1=1 {where_con}
         order by datecompleted asc
         ''')
@@ -116,7 +125,13 @@ def resource_not_found(err):
     return {'code': err.code, 
             'error': str(err)}, err.code
 
+@app.after_request
+def after_request(response):
+    header = response.headers
+    header['Access-Control-Allow-Origin'] = '*'
+    return response
+
 if __name__ == '__main__':
-    conn = psycopg2.connect(f'postgres://{DB_USER}:{DB_PASSWORD}@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/arid-otter-232.defaultdb?sslmode=verify-full&sslrootcert=cc-ca.crt')
+    conn = psycopg2.connect(CONN_STRING)
     app.run(host='0.0.0.0', debug=True, port=5000)
     conn.close()
