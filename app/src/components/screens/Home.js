@@ -6,6 +6,7 @@ import lungesThumbnail from "../../assets/lunges_thumbnail.jpg";
 import situpsThumbnail from "../../assets/situps_thumbnail.JPG";
 import squatsThumbnail from "../../assets/squats_thumbnail.jpg";
 import Header from "../ui/Header";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   constructor(props) {
@@ -88,10 +89,10 @@ class Home extends Component {
         </div>
         <div className="startBtnDiv">
           <div className="startBtn">
-            <p className="startBtnTxt">Start</p>
+            <Link className="startBtnTxt" to="/confirmation" style={{ color: 'black' }}>Start</Link>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }
