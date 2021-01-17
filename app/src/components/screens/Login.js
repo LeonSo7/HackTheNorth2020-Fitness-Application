@@ -22,7 +22,7 @@ class Login extends Component {
             <Form.Control size="lg" type="password" placeholder="password" />
           </Form.Group>
         </div>
-        <Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>
+        <Link to="/home" style={{ textDecoration: 'none'}}>
           <div className="loginBtn">
             Login
           </div>

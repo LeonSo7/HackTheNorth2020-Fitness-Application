@@ -6,6 +6,7 @@ import axios from "axios";
 import { Row, Col } from "react-bootstrap";
 import Countdown from "react-countdown";
 import {withRouter} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const WebcamStreamCapture = (props) => {
   const webcamRef = React.useRef(null);
@@ -109,9 +110,11 @@ const WebcamStreamCapture = (props) => {
       <div className="exerciseBtnDiv">
         <Row>
           <Col className="buttonCol">
-            <div onClick={() => {}} className="workoutQuitBtn">
-              Quit
-            </div>
+          <Link to="/home" style={{ textDecoration: 'none'}}>
+                <div onClick={() => {}} className="workoutQuitBtn">
+                    Quit
+                </div>
+            </Link>
           </Col>
           <Col className="countDownCol">
             {/* {console.log(playerRef.getDuration())} */}
