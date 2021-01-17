@@ -4,10 +4,17 @@ import React, { Component } from "react";
 
 class Workout extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      exercise: props.location.exerciseProps.exerciseSelected,
+    };
+  }
+
   render() {
     return (
       <div className="mainContainer">
-        <WebcamStreamCapture/>
+        <WebcamStreamCapture exerciseSelect={this.state.exercise}/>
       </div>
     );
   }
