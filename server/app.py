@@ -7,8 +7,6 @@ import logging
 import psycopg2
 from psycopg2.extensions import parse_dsn
 
-from pytube import YouTube
-
 load_dotenv()
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_USER = os.getenv('DB_USER')
@@ -23,7 +21,6 @@ def calculate_score():
     request.files['file'].save('./vid/personal.webm')
     exercise = request.form['exercise']
     print(exercise)
-    #YouTube(youtube_url).streams.first().download(output_path='./vid', filename='youtube')
 
     # TODO: calculate score
     score = 1
