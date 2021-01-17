@@ -14,11 +14,11 @@ const WebcamStreamCapture = () => {
     setCapturing(true);
     setPlayState(true);
     mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
-    mimeType: "video/webm",
+      mimeType: "video/webm",
     });
     mediaRecorderRef.current.addEventListener(
-    "dataavailable",
-    handleDataAvailable
+      "dataavailable",
+      handleDataAvailable
     );
     mediaRecorderRef.current.start();
   }, [webcamRef, setCapturing, setPlayState, mediaRecorderRef]);
@@ -61,19 +61,19 @@ const WebcamStreamCapture = () => {
         <ControlBar autoHide={true} />
       </ReactPlayer> */}
       <div>Test</div>
-      <ReactPlayer 
-        playing={playState} 
-        ref={playerRef} 
+      <ReactPlayer
+        playing={playState}
+        ref={playerRef}
         url={'https://www.youtube.com/watch?v=rUWxSEwctFU&ab_channel=IanRushton'}
         onEnded={handleStopCaptureClick}
-        />
+      />
       <Webcam audio={false} ref={webcamRef} />
       {capturing ? (
         <button onClick={handleStopCaptureClick}>Stop Capture</button>
       ) : (
-        // <button onClick={() => {handleStartCaptureClick, props.playingFunc(true)}}>Start Capture</button>
-        <button onClick={handleStartCaptureClick}>Start Capture</button>
-      )}
+          // <button onClick={() => {handleStartCaptureClick, props.playingFunc(true)}}>Start Capture</button>
+          <button onClick={handleStartCaptureClick}>Start Capture</button>
+        )}
       {recordedChunks.length > 0 && (
         <button onClick={handleDownload}>Download</button>
       )}
