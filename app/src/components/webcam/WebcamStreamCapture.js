@@ -74,7 +74,7 @@ const WebcamStreamCapture = (props) => {
       axios({
         method: "post",
         url:
-          "https://cors-anywhere.herokuapp.com/http://35.229.83.24:5000/calculate",
+          "http://35.229.83.24:5000/calculate",
         data: bodyFormData,
         headers: {
           "Content-Type": "multipart/form-data",
