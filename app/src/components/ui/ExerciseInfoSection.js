@@ -22,7 +22,13 @@ class ExerciseInfoSection extends Component {
       squat: this.props.squat,
       su: this.props.su,
       plank: this.props.plank,
-      data: []
+      data: [],
+      leaderboard: {
+        "alex": 99,
+        "joy": 45,
+        "sharon": 10,
+        "leon": 1,
+      },
     };
   }
 
@@ -63,6 +69,59 @@ class ExerciseInfoSection extends Component {
     this.fetchData(exercise);
   }
 
+  activeLeaderBoard = (tabName) => {
+    
+    let hardcode = {
+      "pu": {
+        "alex": 99,
+        "joy": 45,
+        "sharon": 10,
+        "leon": 1,
+      },
+      "su": {
+        "alex": 45,
+        "joy": 5,
+        "sharon": 0,
+        "leon": 0,
+      },
+      "squat": {
+        "alex": 0,
+        "joy": 0,
+        "sharon": 0,
+        "leon": 0,
+      },
+      "plank": {
+        "alex": 36,
+        "joy": 20,
+        "sharon": 17,
+        "leon": 5,
+      },
+    }
+    
+    this.setState({
+      pu: tabName === 'pu',
+      squat: tabName === 'squat',
+      su: tabName === 'su',
+      plank: tabName === 'plank'
+    });
+
+    let exercise;
+    switch (tabName) {
+      case 'pu':
+        exercise = 'pushup';
+        break;
+      case 'su':
+        exercise = 'situp';
+        break;
+      default:
+        exercise = tabName;
+        break;
+    }
+    
+    this.setState({leaderboard: hardcode[tabName]});
+  }
+  
+
   render() {
     return (
       <div>
@@ -70,41 +129,41 @@ class ExerciseInfoSection extends Component {
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Container className="whiteBackground" style={{ padding: '2%', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
             {
-              (this.state.title == "Leaderboard") ? (
+              (this.state.title === "Leaderboard") ? (
                 <>
                   <Row>
                     {
                       (this.state.pu) ? (
                         <>
                           <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Push Ups</h1></Col>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                          <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('squat')}> <h1 className="topButtons">Squats</h1></Col>
+                          <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('su')}> <h1 className="topButtons">Sit Ups</h1></Col>
+                          <Col style={{ paddingRight: '1%', paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('plank')}> <h1 className="topButtons">Planks</h1></Col>
                         </>
                       )
                         :
                         (this.state.squat) ? (
                           <>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
+                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('pu')}> <h1 className="topButtons">Push Ups</h1></Col>
                             <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Squats</h1></Col>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                            <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                            <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('su')}> <h1 className="topButtons">Sit Ups</h1></Col>
+                            <Col style={{ paddingRight: '1%', paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('plank')}> <h1 className="topButtons">Planks</h1></Col>
                           </>
                         )
                           :
                           (this.state.su) ? (
                             <>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('pu')}> <h1 className="topButtons">Push Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('squat')}> <h1 className="topButtons">Squats</h1></Col>
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Sit Ups</h1></Col>
-                              <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                              <Col style={{ paddingRight: '1%', paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('plank')}> <h1 className="topButtons">Planks</h1></Col>
                             </>
                           )
                             :
                             <>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('pu')}> <h1 className="topButtons">Push Ups</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('squat')}> <h1 className="topButtons">Squats</h1></Col>
+                              <Col style={{ paddingRight: 0, paddingLeft: '1%' }} onClick={() => this.activeLeaderBoard('su')}> <h1 className="topButtons">Sit Ups</h1></Col>
                               <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
                             </>
                     }
@@ -112,23 +171,23 @@ class ExerciseInfoSection extends Component {
                   <Container className="greyBackground" style={{ padding: '2%', justifyContent: 'center', alignItems: 'center', height: '50vh' }} >
                     <Row style={{ textAlign: 'center', fontSize: '30px', fontWeight: 'bold', textDecoration: 'underline', marginTop: '2%' }}>
                       <Col>Name</Col>
-                      <Col>Score</Col>
+                      <Col>Scores</Col>
                     </Row>
                     <Row style={{ textAlign: 'center', fontSize: '22px', marginTop: '3%' }}>
                       <Col>Alexandr</Col>
-                      <Col>99</Col>
+                      <Col>{this.state.leaderboard["alex"]}</Col>
                     </Row>
                     <Row style={{ textAlign: 'center', fontSize: '22px', marginTop: '3%' }}>
                       <Col>Joyex Xiaog</Col>
-                      <Col>45</Col>
+                      <Col>{this.state.leaderboard["joy"]}</Col>
                     </Row>
                     <Row style={{ textAlign: 'center', fontSize: '22px', marginTop: '3%' }}>
                       <Col>Sharon</Col>
-                      <Col>10</Col>
+                      <Col>{this.state.leaderboard["sharon"]}</Col>
                     </Row>
                     <Row style={{ textAlign: 'center', fontSize: '22px', marginTop: '3%' }}>
                       <Col>Leon Sob</Col>
-                      <Col>1</Col>
+                      <Col>{this.state.leaderboard["leon"]}</Col>
                     </Row>
                   </Container>
                 </>
