@@ -10,6 +10,7 @@ import {
   Legend,
   Line,
   LineChart,
+  ResponsiveContainer
 } from "recharts";
 
 
@@ -53,7 +54,7 @@ class ExerciseInfoSection extends Component {
                           <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Push Ups</h1></Col>
                           <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
                           <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                          <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                          <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                         </>
                       )
                         :
@@ -62,7 +63,7 @@ class ExerciseInfoSection extends Component {
                             <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
                             <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Squats</h1></Col>
                             <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                            <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                            <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                           </>
                         )
                           :
@@ -71,7 +72,7 @@ class ExerciseInfoSection extends Component {
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Sit Ups</h1></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                              <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                             </>
                           )
                             :
@@ -79,7 +80,7 @@ class ExerciseInfoSection extends Component {
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
+                              <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
                             </>
                     }
                   </Row>
@@ -117,7 +118,7 @@ class ExerciseInfoSection extends Component {
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Push Ups</h1></Col>
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
                               <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                              <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                              <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                             </>
                           )
                             :
@@ -126,7 +127,7 @@ class ExerciseInfoSection extends Component {
                                 <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
                                 <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Squats</h1></Col>
                                 <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                                <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                                <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                               </>
                             )
                               :
@@ -135,7 +136,7 @@ class ExerciseInfoSection extends Component {
                                   <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
                                   <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
                                   <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="currentPageButton">Sit Ups</h1></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
+                                  <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="topButtons">Planks</h1></Col>
                                 </>
                               )
                                 :
@@ -143,24 +144,31 @@ class ExerciseInfoSection extends Component {
                                   <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Push Ups</h1></Col>
                                   <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Squats</h1></Col>
                                   <Col style={{ paddingRight: 0, paddingLeft: '1%' }}> <h1 className="topButtons">Sit Ups</h1></Col>
-                                  <Col style={{ paddingRight: 0, paddingLeft: '1%', paddingRight: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
+                                  <Col style={{ paddingRight: '1%', paddingLeft: '1%' }}> <h1 className="currentPageButton">Planks</h1></Col>
                                 </>
                         }
 
                       </>
                     </Row>
                     {console.log(this.state.data)}
-                    <LineChart
-                      width={500}
-                      height={500}
-                      data={this.state.data.map((ele) => ({score: ele[0], date: ele[1]}))}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="date" interval={0} angle={30} dx={20} />
-                      <YAxis />
-                      <Legend />
-                      <Line type="monotone" dataKey="score" stroke="#8884d8" activeDot={{ r: 8 }} />
-                    </LineChart>
+                    <ResponsiveContainer height={'90%'}>
+                      <LineChart
+                        width={500}
+                        height={300}
+                        maxHeight={50}
+                        data={this.state.data.map((ele) => ({score: ele[0], date: ele[1]}))}
+                        margin={{
+                          top: 20, right: 20, bottom: 20, left: 20,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="date" interval={0} angle={30} dx={20} />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Line type="monotone" dataKey="score" stroke="#8884d8" activeDot={{ r: 8 }} />
+                      </LineChart>
+                    </ResponsiveContainer>
                   </>
                 )
             }
