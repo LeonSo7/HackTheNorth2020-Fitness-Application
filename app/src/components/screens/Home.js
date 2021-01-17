@@ -36,7 +36,7 @@ class Home extends Component {
                 className="bg-dark text-white card"
                 tabindex="-1"
                 onPress={() => {
-                  this.setState({ exercise: "pushup" });
+                  this.setState({ exerciseSelected: "pushup" });
                 }}
               >
                 <Card.Img

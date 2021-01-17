@@ -6,7 +6,7 @@ class Confirmation extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      exercise: "",
+      exercise: props.location.exercise
     }
   }
 
