@@ -88,6 +88,7 @@ def get_scores():
         cur.execute(f'''
         SELECT * FROM Score
         where 1=1 {where_con}
+        order by datecompleted asc
         ''')
 
         results = cur.fetchall()
