@@ -4,11 +4,13 @@ import "../../styles/Results.css";
 import { Link } from "react-router-dom";
 
 const Result = (props) => {
+    const {score} = props.location.state;
+
     return (
         <div className="flex-container">
             <div className="container">
                 <div className="text-container">
-                    <h1>Your Score: ###</h1>
+                    <h1>Your Score: {score}</h1>
                     <p>
                         Good Improvement!
                     </p>

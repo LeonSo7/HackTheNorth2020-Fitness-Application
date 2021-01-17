@@ -5,6 +5,7 @@ import "../../styles/WebcamStreamCapture.css";
 import axios from "axios";
 import { Row, Col } from "react-bootstrap";
 import Countdown from "react-countdown";
+import {withRouter} from 'react-router-dom';
 
 const WebcamStreamCapture = (props) => {
   const webcamRef = React.useRef(null);
@@ -83,6 +84,7 @@ const WebcamStreamCapture = (props) => {
         .then(function (response) {
           //handle success
           console.log(response);
+          props.history.push({pathname: '/results', state: {score: response.data.score}});
         })
         .catch(function (response) {
           //handle error
@@ -149,4 +151,4 @@ const WebcamStreamCapture = (props) => {
   );
 };
 
-export default WebcamStreamCapture;
+export default withRouter(WebcamStreamCapture);
