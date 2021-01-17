@@ -1,27 +1,3 @@
 body {
   background-color: #12182b;
 }
-
-.mainContainer{
-    height: 100vh;
-}
-
-.vidStartBtn {
-  background-color: #fff;
-  width: 175px;
-  height: 70px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #12182b;
-  text-align: center;
-  vertical-align: middle;
-  font-size: xx-large;
-  font-weight: bold;
-  border-radius: 10px;
-}
-
-.vidStartBtnDiv {
-  padding: 2%;
-  text-align: center;
-  background-color: #12182b;
-}
