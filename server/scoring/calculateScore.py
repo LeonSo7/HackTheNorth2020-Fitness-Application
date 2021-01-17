@@ -11,11 +11,8 @@ def compare_images(img1, img2):
 
 	return score
 
-def compare_workout():
-	youtube_folder = "../vid/youtube_images"
+def compare_workout(youtube_folder, personal_folder):
 	youtube_images = sorted([image for image in os.listdir(youtube_folder) if image.endswith(".png")])
-
-	personal_folder = "../vid/personal_images"	
 	personal_images = sorted([image for image in os.listdir(personal_folder) if image.endswith(".png")])
 
 	cumulative_score = 0
@@ -28,5 +25,5 @@ def compare_workout():
 
 	return str(round(cumulative_score / total_images, 2) * 100)
 
-# score = compare_workout()
+# score = compare_workout("../vid/youtube_images", "../vid/personal_images"	)
 # print(score)
