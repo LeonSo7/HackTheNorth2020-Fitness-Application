@@ -41,7 +41,6 @@ class ExerciseInfoSection extends Component {
     return (
       <div>
         <div className="titleText" style={{ marginBottom: '0.5%' }}>{this.state.title}</div>
-        <div>{this.state.data}</div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Container className="whiteBackground" style={{ padding: '2%', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
             {
@@ -89,19 +88,19 @@ class ExerciseInfoSection extends Component {
                       <Col>Name</Col>
                       <Col>Score</Col>
                     </Row>
-                    <Row style={{ textAlign: 'center', fontSize: '30px', marginTop: '3%' }}>
+                    <Row style={{ textAlign: 'center', fontSize: '22px', marginTop: '3%' }}>
                       <Col>Alexandr</Col>
-                      <Col>9999</Col>
+                      <Col>99</Col>
                     </Row>
-                    <Row style={{ textAlign: 'center', fontSize: '30px', marginTop: '3%' }}>
+                    <Row style={{ textAlign: 'center', fontSize: '22px', marginTop: '3%' }}>
                       <Col>Joyex Xiaog</Col>
-                      <Col>450</Col>
+                      <Col>45</Col>
                     </Row>
-                    <Row style={{ textAlign: 'center', fontSize: '30px', marginTop: '3%' }}>
+                    <Row style={{ textAlign: 'center', fontSize: '22px', marginTop: '3%' }}>
                       <Col>Sharon</Col>
-                      <Col>100</Col>
+                      <Col>10</Col>
                     </Row>
-                    <Row style={{ textAlign: 'center', fontSize: '30px', marginTop: '3%' }}>
+                    <Row style={{ textAlign: 'center', fontSize: '22px', marginTop: '3%' }}>
                       <Col>Leon Sob</Col>
                       <Col>1</Col>
                     </Row>
@@ -151,14 +150,14 @@ class ExerciseInfoSection extends Component {
                       </>
                     </Row>
                     {console.log(this.state.data)}
-                    <ResponsiveContainer height={'90%'}>
+                    <ResponsiveContainer height='90%' width='95%'>
                       <LineChart
                         width={500}
                         height={300}
                         maxHeight={50}
                         data={this.state.data.map((ele) => ({score: ele[0], date: ele[1]}))}
                         margin={{
-                          top: 20, right: 20, bottom: 20, left: 20,
+                          top: 20, right: 20, bottom: 20, left: 30,
                         }}
                       >
                         <CartesianGrid strokeDasharray="3 3" />
