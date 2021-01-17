@@ -12,8 +12,6 @@ import {
   LineChart,
 } from "recharts";
 
-let pushupData = [
-];
 
 class ExerciseInfoSection extends Component {
   constructor(props) {
@@ -24,25 +22,16 @@ class ExerciseInfoSection extends Component {
       squat: this.props.squat,
       su: this.props.su,
       plank: this.props.plank,
-      data: pushupData
+      data: []
     };
   }
 
   componentDidMount() {
     axios.get("https://cors-anywhere.herokuapp.com/http://35.229.83.24:5000/scores?exercise=pushup").then(res => {
       if (res.status === 200) {
-        let count = 1
-        this.setState({
-          data: res.data.scores
-            .map(item => {
-              const newItem = {
-                "score": item[2],
-                "date": count
-              };
-              pushupData.push(newItem)
-              count = count + 1
-            }),
-        });
+        const scores = res.data.scores.map((ele, i) => ([ele[2], i+1]));
+        console.log(scores)
+        this.setState({data: scores});
       }
     });
   }
@@ -162,11 +151,11 @@ class ExerciseInfoSection extends Component {
 
                       </>
                     </Row>
-                    {console.log(pushupData)}
+                    {console.log(this.state.data)}
                     <LineChart
                       width={500}
                       height={500}
-                      data={pushupData}
+                      data={this.state.data.map((ele) => ({score: ele[0], date: ele[1]}))}
                     >
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="date" interval={0} angle={30} dx={20} />
