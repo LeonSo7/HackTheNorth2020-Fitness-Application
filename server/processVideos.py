@@ -5,13 +5,13 @@ from tqdm import tqdm
 from pathlib import Path
 
 def storeImages(folderName, videoName):
-	save_loc = Path('../vid/')
+	save_loc = Path('./vid/')
 	save_loc.mkdir(exist_ok=True)
 	img_loc = save_loc.joinpath(folderName)
 	img_loc.mkdir(exist_ok=True)
 
 	# Split images
-	if len(os.listdir(f'../vid/{folderName}')) < 100:
+	if len(os.listdir(f'./vid/{folderName}')) < 100:
 		video_capture = cv2.VideoCapture(str(save_loc.joinpath(videoName)))
 		num = 0
 		storeNum = 0
