@@ -25,11 +25,9 @@ CONN_STRING = f'postgres://{DB_USER2}:{DB_PASSWORD2}@trusty-lemur-8c3.gcp-northa
 
 app = Flask(__name__)
 cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
 
 # send post request with file
 @app.route('/calculate', methods=['POST'])
-@cross_origin()
 def calculate_score():
     if request.form['exercise'] is None or request.files['file'] is None:
         abort(400, 'a parameter was not passed in')
@@ -90,7 +88,6 @@ def add_score(exercise, score):
 
 #query /scores?exercise=<exercise> for filter
 @app.route('/scores', methods=['GET'])
-@cross_origin()
 def get_scores():
     where_con = request.args.get('exercise', default='')
     if where_con != '':
@@ -125,6 +122,12 @@ def get_scores():
 def resource_not_found(err):
     return {'code': err.code, 
             'error': str(err)}, err.code
+
+@app.after_request
+def after_request(response):
+    header = response.headers
+    header['Access-Control-Allow-Origin'] = '*'
+    return response
 
 if __name__ == '__main__':
     conn = psycopg2.connect(CONN_STRING)
