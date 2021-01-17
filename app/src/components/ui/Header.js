@@ -24,7 +24,7 @@ class Header extends Component {
                 (this.state.exercise) ? (
                   <>
                     <Col style={{ paddingRight: 0, paddingLeft: '1%', marginLeft: '3%' }} > <h1 className="currentPageButton" >Select Exercise</h1></Col>
-                    <Col style={{ paddingRight: 0, paddingLeft: '1%'}} >
+                    <Col style={{ paddingRight: 0, paddingLeft: '1%' }} >
                       <h1 className="topButtons">
                         <Link to="/history" style={{ textDecoration: 'none', color: 'black' }}>View History</Link>
                       </h1>
