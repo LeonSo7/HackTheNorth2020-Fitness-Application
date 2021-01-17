@@ -16,6 +16,13 @@ from calculateScore import compare_images, compare_workout
 load_dotenv()
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_USER = os.getenv('DB_USER')
+DB_PASSWORD2 = os.getenv('DB_PASSWORD2')
+DB_USER2 = os.getenv('DB_USER2')
+TABLE_NAME = 'amarkScore'
+# original was "Score"
+CONN_STRING = f'postgres://{DB_USER2}:{DB_PASSWORD2}@trusty-lemur-8c3.gcp-northamerica-northeast1.cockroachlabs.cloud:26257/danielye?sslmode=verify-full&sslrootcert=trusty-lemur-ca.crt'
+#original f'postgres://{DB_USER}:{DB_PASSWORD}@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/arid-otter-232.defaultdb?sslmode=verify-full&sslrootcert=cc-ca.crt'
+
 app = Flask(__name__)
 cors = CORS(app)
 
@@ -70,7 +77,7 @@ def test():
 def add_score(exercise, score):
     with conn.cursor() as cur:
         cur.execute(f'''
-        INSERT INTO Score (Exercise, Score)
+        INSERT INTO {TABLE_NAME} (Exercise, Score)
         VALUES (
             '{exercise}',
             {score}
@@ -88,7 +95,7 @@ def get_scores():
 
     with conn.cursor() as cur:
         cur.execute(f'''
-        SELECT * FROM Score
+        SELECT * FROM {TABLE_NAME}
         where 1=1 {where_con}
         order by datecompleted asc
         ''')
@@ -117,6 +124,6 @@ def resource_not_found(err):
             'error': str(err)}, err.code
 
 if __name__ == '__main__':
-    conn = psycopg2.connect(f'postgres://{DB_USER}:{DB_PASSWORD}@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/arid-otter-232.defaultdb?sslmode=verify-full&sslrootcert=cc-ca.crt')
+    conn = psycopg2.connect(CONN_STRING)
     app.run(host='0.0.0.0', debug=True, port=5000)
     conn.close()
