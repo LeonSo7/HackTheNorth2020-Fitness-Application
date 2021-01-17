@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 import logging
 import psycopg2
 from psycopg2.extensions import parse_dsn
+import subprocess
+import shutil 
 
 from processVideos import storeImages
 from calculateScore import compare_images, compare_workout
@@ -21,13 +23,21 @@ def calculate_score():
     if request.form['exercise'] is None or request.files['file'] is None:
         abort(400, 'a parameter was not passed in')
 
-    request.files['file'].save('./vid/personal.webm')
-    exercise = request.form['exercise']
-    print(exercise)
+    store_file_loc = './vid/personal.webm'
+    dest_file_loc = './vid/personal.mp4'
+    request.files['file'].save(store_file_loc)
+    subprocess.call(['ffmpeg', '-y', '-i', store_file_loc, dest_file_loc])
 
-    # TODO: calculate score
-    score = 1
-    #add_score(exercise, score)
+    exercise = request.form['exercise']
+    storeImages(f'youtube_{exercise}_images', f'{exercise}.mp4') # stores youtube video
+    storeImages(f'personal_images', 'personal.mp4') # stores recorded video
+    score = int(compare_workout(f'./vid/youtube_{exercise}_images', f'./vid/personal_images'))
+
+    add_score(exercise, int(score))
+    
+    #delete the personal images folder after using it
+    if os.path.isdir('./vid/personal_images'):
+        shutil.rmtree('./vid/personal_images')
 
     '''
     score <integer>
