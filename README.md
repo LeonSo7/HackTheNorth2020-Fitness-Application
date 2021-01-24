@@ -1,6 +1,8 @@
 # WEE FIT
 _Track and analyze your workout form from your own home_
 
+See a recorded demo of the app: https://www.youtube.com/watch?v=ofP6BuLzO7c&feature=youtu.be&ab_channel=Fort%C3%A9
+
 ## Inspiration
 The pandemic has sparked more people to exercise more than ever. Many people have started following workout videos on YouTube but is it safe? Doing exercises incorrectly could be very harmful to your body. Our project analyses your form while performing exercises to help you have better form and reduce the potential of bodily harm through exercising.
 
