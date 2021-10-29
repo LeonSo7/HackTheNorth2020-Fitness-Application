@@ -1,6 +1,7 @@
 # WEE FIT
 _Track and analyze your workout form from your own home_
 
+Read more about WEE FIT on Devpost: https://devpost.com/software/wee-fit
 See a recorded demo of the app: https://www.youtube.com/watch?v=ofP6BuLzO7c&feature=youtu.be&ab_channel=Fort%C3%A9
 
 ## Inspiration
